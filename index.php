@@ -1,37 +1,65 @@
 <!DOCTYPE html>
    <html>
     <head>
-        <link rel="stylesheet" href="styles/jolie.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="jolie.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
-        <title>Bienvenue sur insta gaming</title>
-        <?php
-        include("bd.php") ;
-        ?>
+        <title>Bienvenue sur list'animes</title>
+        
     </head>
-    <p id="bonjour">Bonjour et bienvenue sur insta gaming</p>
+
 </body>
-    <?php
-    $bdd = getBD();
-    ?>
-    <table >
-            <tr>
-                <th>Numero ID</th>
-                <th>Nom </th>
-                <th>Quantité en stock </th>
-                <th>Prix (en euros)</th>
-            </tr>
+ 
+<div class=acceuilhaut>
+<div id = "connexion" >
+    <a href=".." target="_self">
+        Se connecter
+        </a>    
 
-            <tr>
-                    
+</div>
 
-            </tr
-    </table>
-<body>
+<div id= "barre_recherche">
+                <form action="" class="formulaire">
+                <input class="champ" type="text" value="rechercher un anime, un profil..." />
+                
+                     
+                </form>
+</div>
+</div>
 
-    <footer>
-    <p><a href="contact/contact.html" target="_self">
-        Contact
-        </a></p>
-    </footer>
+<div id="tableau1">
+<table>
+    
+    <tbody>
+        <tr>
+            <td>top 3 animes</td>
+        </tr>
+        <tr>
+            <td><strong>SQL base de données</strong></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div id= "tableau2">
+<table>
+    
+    <tbody>
+        <tr>
+            <td>FORUM : discussions récentes</td>
+        </tr>
+        <tr>
+            <td><strong>SQL base de données</strong></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+</html>
 
     
