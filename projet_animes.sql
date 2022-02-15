@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 14, 2022 at 02:53 PM
+-- Generation Time: Feb 15, 2022 at 10:51 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -38,6 +38,18 @@ CREATE TABLE `anime` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `avoir_vu`
+--
+
+CREATE TABLE `avoir_vu` (
+  `num_anime` int(11) NOT NULL,
+  `num_utilisateur` int(11) NOT NULL,
+  `note_utilisateur` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `commentaires`
 --
 
@@ -59,6 +71,29 @@ CREATE TABLE `discussion` (
   `titre_discussion` varchar(200) NOT NULL,
   `date_discussion` datetime NOT NULL,
   `id_utilisateur` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `etre_ami`
+--
+
+CREATE TABLE `etre_ami` (
+  `id_utilisateur1` int(11) NOT NULL,
+  `id_utilisateur2` int(11) NOT NULL,
+  `date_ajout` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lister_a_voir`
+--
+
+CREATE TABLE `lister_a_voir` (
+  `num_anime` int(11) NOT NULL,
+  `num_utilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -98,6 +133,13 @@ ALTER TABLE `anime`
   ADD PRIMARY KEY (`id_anime`);
 
 --
+-- Indexes for table `avoir_vu`
+--
+ALTER TABLE `avoir_vu`
+  ADD PRIMARY KEY (`num_anime`,`num_utilisateur`),
+  ADD KEY `num_utilisateur` (`num_utilisateur`);
+
+--
 -- Indexes for table `commentaires`
 --
 ALTER TABLE `commentaires`
@@ -110,6 +152,20 @@ ALTER TABLE `commentaires`
 ALTER TABLE `discussion`
   ADD PRIMARY KEY (`id_discussion`),
   ADD KEY `CREER` (`id_utilisateur`);
+
+--
+-- Indexes for table `etre_ami`
+--
+ALTER TABLE `etre_ami`
+  ADD PRIMARY KEY (`id_utilisateur1`,`id_utilisateur2`),
+  ADD KEY `id_utilisateur2` (`id_utilisateur2`);
+
+--
+-- Indexes for table `lister_a_voir`
+--
+ALTER TABLE `lister_a_voir`
+  ADD PRIMARY KEY (`num_anime`,`num_utilisateur`),
+  ADD KEY `num_utilisateur` (`num_utilisateur`);
 
 --
 -- Indexes for table `photo de profil`
@@ -129,6 +185,13 @@ ALTER TABLE `utilisateur`
 --
 
 --
+-- Constraints for table `avoir_vu`
+--
+ALTER TABLE `avoir_vu`
+  ADD CONSTRAINT `avoir_vu_ibfk_1` FOREIGN KEY (`num_anime`) REFERENCES `anime` (`id_anime`),
+  ADD CONSTRAINT `avoir_vu_ibfk_2` FOREIGN KEY (`num_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
+
+--
 -- Constraints for table `commentaires`
 --
 ALTER TABLE `commentaires`
@@ -140,6 +203,20 @@ ALTER TABLE `commentaires`
 --
 ALTER TABLE `discussion`
   ADD CONSTRAINT `CREER` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
+
+--
+-- Constraints for table `etre_ami`
+--
+ALTER TABLE `etre_ami`
+  ADD CONSTRAINT `etre_ami_ibfk_1` FOREIGN KEY (`id_utilisateur1`) REFERENCES `utilisateur` (`id_utilisateur`),
+  ADD CONSTRAINT `etre_ami_ibfk_2` FOREIGN KEY (`id_utilisateur2`) REFERENCES `utilisateur` (`id_utilisateur`);
+
+--
+-- Constraints for table `lister_a_voir`
+--
+ALTER TABLE `lister_a_voir`
+  ADD CONSTRAINT `lister_a_voir_ibfk_1` FOREIGN KEY (`num_anime`) REFERENCES `anime` (`id_anime`),
+  ADD CONSTRAINT `lister_a_voir_ibfk_2` FOREIGN KEY (`num_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 --
 -- Constraints for table `utilisateur`
