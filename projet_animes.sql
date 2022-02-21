@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `anime`;
 CREATE TABLE IF NOT EXISTS `anime` (
-  `id_anime` int(5) DEFAULT NULL,
+  `id_anime` int(5) NOT NULL,
   `titre_anime` varchar(100) DEFAULT NULL,
   `titre_anglais_anime` varchar(108) DEFAULT NULL,
   `image_url_anime` varchar(51) DEFAULT NULL,
@@ -44,8 +44,10 @@ CREATE TABLE IF NOT EXISTS `anime` (
   `popularite_anime` varchar(5) DEFAULT NULL,
   `contexte_anime` varchar(1432) DEFAULT NULL,
   `studio_anime` varchar(80) DEFAULT NULL,
-  `genre_anime` varchar(125) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `genre_anime` varchar(125) DEFAULT NULL,
+PRIMARY KEY (`id_anime`)
+) 
+ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `anime`
