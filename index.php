@@ -7,7 +7,7 @@
         
     </head>
 
-</body>
+<body>
  
 <div class=acceuilhaut >
 <div id = "connexion" >
@@ -59,7 +59,7 @@
 
 
 
-
+</body>
 
 
 </html>
