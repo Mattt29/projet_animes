@@ -9,13 +9,15 @@
 
 </body>
  
-<div class=acceuilhaut>
+<div class=acceuilhaut >
 <div id = "connexion" >
     <a href=".." target="_self">
         Se connecter
         </a>    
 
 </div>
+
+
 
 <div id= "barre_recherche">
                 <form action="" class="formulaire">
