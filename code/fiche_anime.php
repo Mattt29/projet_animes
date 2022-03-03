@@ -17,21 +17,21 @@
 
 </div>
 
-<div id= "barre_recherche">
-                <form action="" class="formulaire">
-                <input class="champ" type="text" value="rechercher un anime, un profil..." />
-                     
-                </form>
-</div>
+<form method="GET">
+    
+    <input type="search" name="titre_anime" placeholder="Recherche anime.." id="barre_recherche" />
+    <input type="submit" value="Valider" id="bouton_validé" />
+</form>
 </div>
 
 <?php
-function getBD(){
-			$bdd = new PDO('mysql:host=localhost;dbname=projet_anime;charset=utf8','root', 'root');
-			return $bdd;
-			}
+include("bd.php");
 $bdd =getBD();
-$id_anime=2;
+
+
+$id_anime=$_GET["id_anime"];
+
+
 $rep = $bdd->query('SELECT * from anime where id_anime='.$id_anime);
 $ligne = $rep ->fetch();
 ?>
@@ -96,7 +96,7 @@ if($ligne['date_anime']!="" & $ligne['type_anime']=="Movie") {
 ?>
 </div>
 
-<div = class="genre_anime">
+<div  class="genre_anime">
 <?php
 if($ligne['genre_anime']!="") {
 	echo 'Genres de l anime : '.$ligne['genre_anime']."<br /> <br />"; 
@@ -121,11 +121,13 @@ echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15
 $rep-> closeCursor(); 
 ?>
 
-<?php
-echo '<a href="index.php">Retour</a>'."<br />\n";
-?>
-
 </body>
+
+<footer >
+	<p>
+	<a href="index.php">Retour</a>
+	</footer>
+	</p>
 </html>
 
     

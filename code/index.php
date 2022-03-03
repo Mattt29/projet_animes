@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="jolie.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+        <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
         <title>Bienvenue sur list'animes</title>
         <?php
         include("bd.php") ;
@@ -15,14 +16,12 @@
     <body>
  
 <div class=acceuilhaut>
-<div id=profil>
-<img src="../img/profil.png" alt="some_text" style="opacity:0.4;filter:alpha(opacity=40);" id="imgprofile"/>
+<div id=profila>
+ 
+
+<div class="iconesize"> <i class="fa-solid fa-user-large"></i></div>
 
 <div id = "connexion" >
-
-
-
-
 <?php
     session_start();
     if(!isset($_SESSION['utilisateur']))
@@ -49,13 +48,9 @@
 
 
 
-<div id= "barre_recherche">
+
 <?php
 
-
-
- 
- 
   
  $rep = $bdd->query('select * from anime');
  
@@ -66,10 +61,6 @@
        $articles = $bdd->query('SELECT titre_anime FROM anime WHERE CONCAT(titre_anime, contexte_anime) LIKE "%'.$q.'%" ORDER BY id_anime DESC');
     }
  }
-  
-
-
-    
     $rep -> closeCursor();           
     
     ?>
@@ -77,13 +68,12 @@
 
 
 <form method="GET">
-   <input type="search" name="titre_anime" placeholder="Recherche anime" />
-   <input type="submit" value="Valider" />
+    
+    <input type="search" name="titre_anime" placeholder="Recherche anime.." id="barre_recherche" />
+    <input type="submit" value="Valider" id="bouton_validé" />
 </form>
 
 
-
-</div>
 </div>
 
 

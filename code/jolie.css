@@ -19,14 +19,7 @@ table, tr, td, th {
     }    
 
 
-#imgprofile{
-    width: 10%;
-    height: 10%;
-    
-     
 
-
-}
 
 .tableau{
     
@@ -39,28 +32,32 @@ table, tr, td, th {
 
 #connexion {
     position: relative;
+	float:left;
+	text-align: end;
     
 }
 
 #barre_recherche{
     position:relative; 
-    width:400px;
-    height:200px; 
+    width:200px;
+    height:50px; 
     float:top;
+	font-size: 20px;
     
 }
 
-.formulaire               {display:inline-block;}
-.formulaire .champ       {width:600px; height:35px;}
+
 
 
 .acceuilhaut {
     /*width: 100%;
     margin: 0 auto;*/
-    
+	
+    margin: auto;
     display: flex;
     justify-content:space-around; 
     align-content: flex-start;
+	padding-bottom: 100px;
     
   }
 
@@ -68,6 +65,7 @@ table, tr, td, th {
     justify-content: left;
     display: flex;
     align-items: flex-start;
+	
 }
 
 
@@ -78,39 +76,39 @@ table, tr, td, th {
 .img_anime{
 	z-index: 2;
 	position: absolute;
-	left: 15%;
+	left: 5%;
 	top: 20%;
 }
 
 .img_defaut{
 	z-index: 1;
 	position: absolute;
-	left: 15%;
+	left: 5%;
 	top: 20%;
 }
 
 .titre_anime{
 	position: absolute;
-	left: 35%;
+	left: 30%;
 	top: 20%;
 }
 
 .titre_anime_anglais{
 	position: absolute;
-	left: 35%;
+	left: 30%;
 	top: 30%;
 }
 
 .type_anime{
 	position: absolute;
-	left: 65%;
+	left: 75%;
 	top: 20%;
 }
 
 .note_anime{
 	color: black;
 	position: absolute;
-	left: 40%;
+	left: 30%;
 	top: 40%;
 	background-image: url(../img/etoile.jpg);
 	background-position: center;
@@ -130,21 +128,37 @@ table, tr, td, th {
 
 .date_anime{
 	position: absolute;
-	left: 35%;
-	top: 50%;
+	left: 30%;
+	top: 55%;
 }
 
 .genre_anime{
 	position: absolute;
-	left: 35%;
-	top: 60%;
+	left: 30%;
+	top: 65%;
 }
 
 
 .nb_anime{
 	position: absolute;
-	left: 35%;
-	top: 70%;
+	left: 30%;
+	top: 80%;
 }
 
-  
+footer{
+
+		
+	position:absolute;
+	bottom:0;
+	width:100%;
+	padding-top:50px;
+	height:50px;
+	
+	}
+
+
+.iconesize{
+	float: left;
+	color: black;
+
+}
