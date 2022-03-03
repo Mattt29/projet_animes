@@ -111,7 +111,7 @@
         while( $i<3 && $ligne = $rep -> fetch() ){ 
         echo "<tr> <td> <img src='".$ligne['image_url_anime']."'</td>
         <td>".$ligne['note_generale_anime']."</td><td>"
-        ."<a href ="."fiche_anime.php?id_art=".$ligne['id_anime'].">".$ligne['titre_anime']."</a>"."</td>";
+        ."<a href ="."fiche_anime.php?id_anime=".$ligne['id_anime'].">".$ligne['titre_anime']."</a>"."</td>";
         $i=$i+1;
         }   
         
