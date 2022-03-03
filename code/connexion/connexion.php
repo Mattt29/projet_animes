@@ -34,7 +34,7 @@ border : 1px dotted red;
  
 <div class="connexion"> 
 <p> Connexion </p>
-<form  method="post" autocomplete="off">
+<form  action ="connecter.php" method="post" autocomplete="off">
 <p>
 Adresse e-mail :
 <input type="string" name="mail" value="<?php if(isset($_GET['mail'])){ echo $_GET['mail'] ;}  ?>" />
@@ -42,7 +42,7 @@ Adresse e-mail :
 
 <p>
 Mot de passe :
-<input type="password" name="mdp1" value="<?php if(isset($_GET['mdp1'])){ echo $_GET['mdp1'] ;}  ?>"/>
+<input type="password" name="mdp" value="<?php if(isset($_GET['mdp'])){ echo $_GET['mdp'] ;}  ?>"/>
 </p>
 
 <p>
