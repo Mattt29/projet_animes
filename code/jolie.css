@@ -1,10 +1,10 @@
 html {
    
-    font-family: fantasy;
-    background-image: url(../projet_animes/img/background.png);
-    background-attachment: fixed;
-    font-size: 1cm;
-    color: white;
+	font-family: fantasy;
+   background-image: url(../img/background.png);
+	background-attachment: fixed;
+  	font-size: 1cm;
+   color: white;
     }
 
 table, tr, td, th {
@@ -69,4 +69,82 @@ table, tr, td, th {
     display: flex;
     align-items: flex-start;
 }
+
+
+
+
+
+
+.img_anime{
+	z-index: 2;
+	position: absolute;
+	left: 15%;
+	top: 20%;
+}
+
+.img_defaut{
+	z-index: 1;
+	position: absolute;
+	left: 15%;
+	top: 20%;
+}
+
+.titre_anime{
+	position: absolute;
+	left: 35%;
+	top: 20%;
+}
+
+.titre_anime_anglais{
+	position: absolute;
+	left: 35%;
+	top: 30%;
+}
+
+.type_anime{
+	position: absolute;
+	left: 65%;
+	top: 20%;
+}
+
+.note_anime{
+	color: black;
+	position: absolute;
+	left: 40%;
+	top: 40%;
+	background-image: url(../img/etoile.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+
+.rang_anime{
+	color: black;
+	position: absolute;
+	left: 65%;
+	top: 40%;
+	background-image: url(../img/podium.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.date_anime{
+	position: absolute;
+	left: 35%;
+	top: 50%;
+}
+
+.genre_anime{
+	position: absolute;
+	left: 35%;
+	top: 60%;
+}
+
+
+.nb_anime{
+	position: absolute;
+	left: 35%;
+	top: 70%;
+}
+
   

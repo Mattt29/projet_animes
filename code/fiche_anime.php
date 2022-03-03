@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html>
 	<head>
-		<link rel="stylesheet" href="provisoire.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="jolie.css" type="text/css" media="screen" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
       <title>Bienvenue sur list'animes</title>
      
@@ -31,7 +31,7 @@ function getBD(){
 			return $bdd;
 			}
 $bdd =getBD();
-$id_anime=4;
+$id_anime=2;
 $rep = $bdd->query('SELECT * from anime where id_anime='.$id_anime);
 $ligne = $rep ->fetch();
 ?>
@@ -121,6 +121,9 @@ echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15
 $rep-> closeCursor(); 
 ?>
 
+<?php
+echo '<a href="index.php">Retour</a>'."<br />\n";
+?>
 
 </body>
 </html>
