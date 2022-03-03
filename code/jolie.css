@@ -1,0 +1,72 @@
+html {
+   
+    font-family: fantasy;
+    background-image: url(../projet_animes/img/background.png);
+    background-attachment: fixed;
+    font-size: 1cm;
+    color: white;
+    }
+
+table, tr, td, th {
+        /*border-width: 1px;*/
+        border-style: solid;
+        border-color: grey;
+        margin: 0px;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        color:black;
+    }    
+
+
+#imgprofile{
+    width: 10%;
+    height: 10%;
+    
+     
+
+
+}
+
+.tableau{
+    
+    padding-left: 200px;   
+    display:inline-block;
+    vertical-align:top;
+    left: 400px;
+}
+
+
+#connexion {
+    position: relative;
+    
+}
+
+#barre_recherche{
+    position:relative; 
+    width:400px;
+    height:200px; 
+    float:top;
+    
+}
+
+.formulaire               {display:inline-block;}
+.formulaire .champ       {width:600px; height:35px;}
+
+
+.acceuilhaut {
+    /*width: 100%;
+    margin: 0 auto;*/
+    
+    display: flex;
+    justify-content:space-around; 
+    align-content: flex-start;
+    
+  }
+
+#profil{
+    justify-content: left;
+    display: flex;
+    align-items: flex-start;
+}
+  
