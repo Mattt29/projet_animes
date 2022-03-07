@@ -114,11 +114,11 @@ table, tr, td, th {
 }
 
 .note_anime{
-	color: black;
+	color: yellow;
 	position: absolute;
 	left: 30%;
 	top: 40%;
-	background-image: url(../img/etoile.jpg);
+	background-image: url(../img/star.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 }
