@@ -23,16 +23,19 @@ if($_POST['n']=="" || $_POST['p']=="" || $_POST['pseudo']=="" || $_POST['mail2']
 }
 
 else {
+
+$pass_hash = password_hash($_POST['mdp1'], PASSWORD_DEFAULT);
+echo $pass_hash;
 	include('../bd.php');
 	$bdd =getBD();
 	$rep = $bdd->query(enregistrer('"'.$_POST['n'].'"','"'.$_POST['p'].'"','"'.$_POST['pseudo'].'"','"'.$_POST['mail2'].
-	'"','"'.$_POST['mdp1'].'"' ));
+	'"','"'.$pass_hash.'"' ));
 	/* $rep-> closeCursor(); */
 	$ad = enregistrer($_POST['n'].'"','"'.$_POST['p'].'"','"'.$_POST['pseudo'].'"','"'.$_POST['mail2'].
-	'"','"'.$_POST['mdp1'].'"' );
+	'"','"'.$pass_hash.'"' );
 	echo 'yo';
 	echo $ad;
- 	echo '<meta http-equiv="Refresh" content="3; url=../index.php"/>';
+ 	echo '<meta http-equiv="Refresh" content="5; url=../index.php"/>';
 }
 ?>
 

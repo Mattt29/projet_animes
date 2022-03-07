@@ -22,11 +22,11 @@ include('../bd.php');
 	while ($ligne = $sql ->fetch()) {
 	$id_utilisateur=$ligne['id_utilisateur'];
 	$pseudo=$ligne['pseudo'];
-	#$mdptest=$ligne['mdp'];
+	$mdptest=$ligne['mdp'];
 	}  
 	$sql-> closeCursor();
 	
-if($mail=="" || $mdp=="" || !isset($id_utilisateur) || $id_utilisateur=="" || !isset($pseudo) || $pseudo=="" ) {
+if($mail=="" || $mdp=="" || !isset($id_utilisateur) || $id_utilisateur=="" || !isset($pseudo) || $pseudo=="" || !password_verify($mdp,$mdptest) ) {      
 	echo 'Erreur de saisie, retour à la page de connexion';
 	echo '<meta http-equiv="Refresh" content="3; 
 	url=connexion.php?mail='.$mail.'"/>' ;

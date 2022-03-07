@@ -92,7 +92,7 @@
         <tr>
         
         
-        <?  
+        <?php
         
         
         $rep = $bdd->query('select * from anime');
