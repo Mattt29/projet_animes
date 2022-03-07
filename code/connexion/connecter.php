@@ -2,8 +2,8 @@
 <head>
 <meta http-equiv="Content-Type"
 content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="../styles/main.css"
-type="text/css" media="screen" />
+<link rel="stylesheet" href="../styles/main.css" type="text/css" media="screen" />
+<img src=../img/background.png id=fondecran class=fondecran alt=/>
 <title>Se connecter</title>
 </head>
 <body>

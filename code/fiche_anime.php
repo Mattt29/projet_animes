@@ -135,13 +135,14 @@ if($ligne['genre_anime']!="") {
 
 <div class="img_anime">
 <?php
-echo "<img src=".$ligne["image_url_anime"]." ' width='400' height='400' alt='".$genre_anime."'/>";
+$a="";
+echo "<img src=".$ligne["image_url_anime"]." ' width='400' height='400' alt='".$a."'/>";
 ?>
 </div>
 
 <div class="img_defaut">
 <?php
-echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15119f2a7.png ' width='400' height='400' alt='".$pas_image."'/>";
+echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15119f2a7.png ' width='400' height='400' alt='".$a."'/>";
 ?>
 </div>
 
