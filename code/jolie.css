@@ -1,12 +1,20 @@
 html {
    
 	font-family: fantasy;
-   background-image: url(img/background.png);
-	background-attachment: fixed;
-  	font-size: 1cm;
-   color: white;
+   	font-size: 1cm;
+   	color: white;
     }
 
+#fondecran {
+		/* Fixe l'image en haut à gauche de la page */
+		position: fixed; 
+		z-index: -4;
+		top: 0; 
+		left: 0; 
+		/* Préserve le ratio de l'image */
+		min-width: 100%;
+		min-height: 100%;
+	   }	
 table, tr, td, th {
         /*border-width: 1px;*/
         border-style: solid;
@@ -110,7 +118,7 @@ table, tr, td, th {
 	position: absolute;
 	left: 30%;
 	top: 40%;
-	background-image: url(img/etoile.jpg);
+	background-image: url(../img/etoile.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -121,7 +129,7 @@ table, tr, td, th {
 	position: absolute;
 	left: 65%;
 	top: 40%;
-	background-image: url(img/podium.png);
+	background-image: url(../img/podium.png);
 	background-position: center;
 	background-repeat: no-repeat;
 }

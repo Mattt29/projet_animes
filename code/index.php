@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="jolie.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
+        <img src=../img/background.png id=fondecran class=fondecran alt=/>
+
         <title>Bienvenue sur list'animes</title>
         <?php
         include("bd.php") ;
@@ -14,7 +16,7 @@
 
 
     <body>
- 
+    <img src=../img/background.png id=fondecran class=fondecran alt=/>
 <div class=acceuilhaut>
 <div id=profila>
  

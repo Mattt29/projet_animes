@@ -4,7 +4,8 @@
 		<link rel="stylesheet" href="jolie.css" type="text/css" media="screen" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>      
-      <title>Bienvenue sur list'animes</title>
+		<img src=../img/background.png id=fondecran class=fondecran alt=/>
+		<title>Bienvenue sur list'animes</title>
      
 	</head>
 
@@ -13,7 +14,7 @@
 <div class=acceuilhaut>
 <div id=profila>
  
-	<div class="iconesize"> <i class="fa-solid fa-user-large"></i></div>
+
    <div class="homepage"> <a href="index.php"> <i class="fa-solid fa-house"></i> </a>
  </div>
 <div id = "connexion" >
@@ -150,11 +151,8 @@ $rep-> closeCursor();
 
 </body>
 
-<footer >
-	<p>
-	<a href="index.php">Retour</a>
-	</footer>
-	</p>
+
+
 </html>
 
     
