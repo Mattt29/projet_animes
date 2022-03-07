@@ -1,30 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="../styles/connexion.css" type="text/css" media="screen" />
 <meta http-equiv="Content-Type"
 content="text/html; charset=UTF-8" />
+<img src=../img/background.png id=fondecran class=fondecran alt=/>
 
 
 <title>Connexion</title>
-<style> 
-* {
-border : 1px dotted red;
-}
-.inscription {
-	
-}
 
-.conteneur_connexion{
-   display: flex;
-}
-.inscription,.connexion{
-   flex-grow: 1;
-   margin-right: :300px;
-	margin-top:200px;
-	margin-bottom: auto;
-}
 
-</style>
 
 
 </head>
