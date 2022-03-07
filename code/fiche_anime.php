@@ -150,6 +150,12 @@ echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15
 $rep-> closeCursor(); 
 ?>
 
+<div class="formulaire">
+Ajouter à a liste des animes vus <br>
+Ajouter à ma liste des animes à voir <br>
+Ajouter une note
+</div>
+
 </body>
 
 
