@@ -156,7 +156,13 @@
 </table>
 </div>
 
+<div>
+<?php 
+ echo "<a href =liste_animes.php?id_utilisateur=".$_SESSION['utilisateur']['id_utilisateur']."> Liste animes</a>";
 
+?>
+
+</div>
 
 
 </body>
