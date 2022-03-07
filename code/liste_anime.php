@@ -9,6 +9,7 @@
 		<title>Bienvenue sur list'animes</title>
 		<style>
 			.liste{
+
 			border: 2px solid black;
 			}		
 		</style>		
@@ -43,10 +44,6 @@
 
     <?php }?>
 
-    
-
-      
-
 
 
 </div>
@@ -77,17 +74,19 @@ $bdd =getBD();
 
 
 $id_utilisateur=$_GET["id_utilisateur"];
-$avoir = $bdd->query('SELECT id_anime from liste_a_voir where id_utilisateur='.$id_utilisateur);
-$ligne = $avoir ->fetch();
+$avoir = $bdd->query('SELECT liste_a_voir.id_anime, image_url_anime from liste_a_voir, anime where liste_a_voir.id_anime=anime.id_anime id_utilisateur='.$id_utilisateur);
 
-$avu = $bdd->query('SELECT id_anime from liste_vus where id_utilisateur='.$id_utilisateur);
-$ligne = $avu ->fetch();
+#ligne1 = $avoir ->fetch();
+
+$avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime from liste_vus, anime where liste_vus.id_anime=anime.id_anime id_utilisateur='.$id_utilisateur);
+
+#ligne2 = $avu ->fetch();
+
 ?>
 
 
 <div class="liste">
-		Liste animes vus
-		
+	Liste animes vus
 </div>
 
 <div class="liste">
