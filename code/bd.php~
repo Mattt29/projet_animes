@@ -1,7 +1,0 @@
-<?php
-function getBD(){
-$bdd = new PDO('mysql:host=localhost;dbname=magasin_billets;charset=utf8',
-'root', '');
-return $bdd;
-}
-?>
