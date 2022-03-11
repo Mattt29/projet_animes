@@ -15,6 +15,14 @@ content="text/html; charset=UTF-8" />
 </head>
 
 <body> 
+<!-- <div class="acceudilhaut">
+<div class="homepage"> <a href="index.php"> <i class="fa-solid fa-house"></i> </a>
+ </div>
+</div>
+-->
+
+
+
 <div class="conteneur_connexion">
  
 <div class="connexion"> 

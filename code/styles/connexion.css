@@ -27,6 +27,7 @@ font-family: fantasy;
 		min-width: 100%;
 		min-height: 100%;
 	   }
+	   
 #bouton{
 background-color: white;
 color:black;
@@ -37,9 +38,37 @@ background-color: #F59494;
 color:black;
 font-size:0.5cm;
 }
+
 form{
 background: rgba(255,255,255,0.4);
 }
+
 div{
 margin:50px;
 }
+
+#profil{
+    justify-content: left;
+    display: flex;
+    align-items: flex-start;
+	
+}
+
+
+.acceuilhaut {
+    /*width: 100%;
+    margin: 0 auto;*/
+	
+    margin: auto;
+    display: flex;
+    justify-content:space-around; 
+    align-content: flex-start;
+	padding-bottom: 100px;
+    
+  }
+
+.homepage{
+	float: left;
+	color: black;
+}
+

@@ -41,6 +41,15 @@
     ?>	
 	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php"> Se déconnecter </a> </p>
 	
+<div id="liste_anime">
+<?php 
+ echo "<a href =liste_animes/liste_animes.php?id_utilisateur=".$_SESSION['utilisateur']['id_utilisateur']."> Liste animes</a>";
+
+?>
+
+</div>	
+	
+	
     <?php }?>
     
       
@@ -156,13 +165,7 @@
 </table>
 </div>
 
-<div>
-<?php 
- echo "<a href =liste_animes.php?id_utilisateur=".$_SESSION['utilisateur']['id_utilisateur']."> Liste animes</a>";
 
-?>
-
-</div>
 
 
 </body>
