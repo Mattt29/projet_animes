@@ -11,8 +11,8 @@
 
 <body>
 
-<div class=acceuilhaut>
-<div id=profila>
+<div class="acceuilhaut">
+<div id="profila">
  
 
    <div class="homepage"> <a href="index.php"> <i class="fa-solid fa-house"></i> </a>
@@ -151,7 +151,39 @@ $rep-> closeCursor();
 ?>
 
 <div class="formulaire">
-Ajouter à a liste des animes vus <br>
+
+
+
+<form  action="liste_animes/ajouter_anime_vu.php" method="post" autocomplete="off">
+<p>
+<input type="hidden" name="id_anime" value="<?php echo $id_anime ?>"/>
+</p>
+
+<p>
+Note : 
+<input type="number" name="note" step="0.5" min="0" max="10"/>
+</p>
+
+
+<p>
+<input type="submit" value="Ajouter à ma liste des animes vus">
+
+</p>
+</form>
+
+
+<form  action="liste_animes/ajouter_anime_a_voir.php" method="post" autocomplete="off">
+<p>
+<input type="hidden" name="id_anime" value="<?php echo $id_anime ?>"/>
+</p>
+
+<p>
+<input type="submit" value="Ajouter à ma liste des animes à voir">
+
+</p>
+</form>
+
+
 Ajouter à ma liste des animes à voir <br>
 Ajouter une note
 </div>

@@ -78,9 +78,9 @@
 
 
 
-<form method="GET">
+<form method="GET" action="recherche.php" autocomplete="on">
     
-    <input type="search" name="titre_anime" placeholder="Recherche anime.." id="barre_recherche" />
+    <input type="search" name="recherche"  placeholder="Recherche anime.." id="barre_recherche" />
     <input type="submit" value="Valider" id="bouton_validé" />
 </form>
 
