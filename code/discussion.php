@@ -63,7 +63,7 @@
     Bonjour, voici les informations nécéssaires pour créer une discussion : </br>
 </p>
     
-    <form action="forum.php" method="post" autocomplete="off" >
+    <form action="valider_discussion.php" method="post" autocomplete="off" >
         <p>
             Titre de la discussion : 
             <input type="text" name="titre" value=""/>
