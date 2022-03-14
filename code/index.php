@@ -20,7 +20,7 @@
 <div id="profila">
  
 
-<div class="iconesize"> <i class="fa-solid fa-user-large"></i></div>
+
 
 
 <div id = "connexion" >
@@ -36,9 +36,10 @@
     else {
     echo  '<br />';
     echo "Bonjour ";
-    echo $_SESSION['utilisateur']['pseudo'];
-
+    echo $_SESSION['utilisateur']['pseudo']; 
     ?>	
+    
+    <a href="profil/profil.php" >la<?php echo $_GET['id_photo_de_profil']; ?></a>    
 	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php"> Se déconnecter </a> </p>
 	
 <div id="liste_anime">
@@ -156,7 +157,18 @@
          <tr>
 
         <td>
-         vous pouvez créer une discussion <a href="discussion.php">  ici </a>
+<?php
+        session_start();
+        if(isset($_SESSION['utilisateur']))
+        { ?>
+         <tr>
+
+        <td>
+        vous pouvez créer une discussion <a href="discussion.php">  ici </a>
+        
+         </td>
+        </tr>
+        <?php } ?>
         </td>
         </tr>
       
