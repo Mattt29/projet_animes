@@ -44,7 +44,7 @@
 	
 <div id="liste_anime">
 <?php 
- echo "<a href =liste_animes/liste_animes.php?id_utilisateur=".$_SESSION['utilisateur']['id_utilisateur']."> Liste animes</a>";
+ echo "<a href =liste_animes/liste_animes.php> Liste animes</a>";
 
 ?>
 
