@@ -57,36 +57,47 @@
 
 
 <?php 
-        
+        include ("bd.php");
         session_start();
             function enregistrerdiscu($titre_discussion,$date_discusison,$id_utilisateur){
-                include ("bd.php");
-                $bdd=getBD();
-                $toto = 'INSERT INTO `discussion`(`titre_discussion`, `date_discussion`, `id_utilisateur`) VALUES ("'.$titre_discussion.'",'.$date_discusison.',"'.$id_utilisateur.'")';
                 
+                $bdd=getBD();
+                $toto = 'INSERT INTO `discussion`(`titre_discussion`, `date_discussion`, `id_utilisateur`) VALUES ("'.$titre_discussion.'","'.$date_discusison.'","'.$id_utilisateur.'")';
+                echo($toto);
                 $bdd -> query($toto);
+                
                 
                
             }
 
 
             function enregistrercom($message,$id_discussion,$id_utilisateur){
-                include ("bd.php");
+                
                 $bdd1=getBD();
                 //$id_discussion =$bdd -> query('Select id_discusson from discussion');
                 $totol = 'INSERT INTO `commentaires`(`message`, `id_discussion`, `id_utilisateur`) VALUES ("'.$message.'","'.$id_discussion.'","'.$id_utilisateur.'")';
                 
                 $bdd1 -> query($totol);
-
+                
             }
-                    
-            enregistrercom($_POST['adr'],6,$_SESSION['utilisateur']['id_utilisateur']);
             
-            //enregistrerdiscu("jkhdfhjkdfb",12-12-1212,4);    
-            //enregistrerdiscu($_POST['titre'],$_POST['date'],$_SESSION['utilisateur']["id_utilisateur"];
+            $titre= $_POST['titre'];
+            $id_util=$_SESSION['utilisateur']['id_utilisateur'];
+            $date=$_POST['date'];
+            $texte=$_POST['adr'];
             
-            echo "fnddqdqsdq,";
-            echo $_POST['titre'] ."    ".$_POST['date']."    ".$_SESSION['utilisateur']['id_utilisateur']."       ".$_POST['adr'];
+            
+            $bdd3 = getBD();
+            enregistrerdiscu($titre,$date,$id_util);
+            
+            echo $titre;
+            $id_discu = $bdd3 -> query('select id_discussion from discussion where titre_discussion ="'.$titre.'"');
+            $ligne3 = $id_discu -> fetch();
+            $id_discu=$ligne3['id_discussion'];
+            
+            enregistrercom($texte,$id_discu,$id_util);
+            
+            
  ?>            
 
 <p>
@@ -94,7 +105,7 @@ Votre discussion a bien été enregistrée, vous allez être rediriger vers le f
 </p>
 
 <?php
-//echo '<meta http-equiv="refresh" content="5; url=forum.php"/>';
+echo '<meta http-equiv="refresh" content="0; url=forum.php"/>';
 ?>
 
 </body>
