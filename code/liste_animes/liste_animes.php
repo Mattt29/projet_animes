@@ -76,7 +76,7 @@ include("../bd.php");
 $bdd =getBD();
 
 #print_r($_SESSION['liste_a_voir']);
-$id_utilisateur=$_GET["id_utilisateur"];
+$id_utilisateur=$_SESSION['utilisateur']['id_utilisateur'];
 #echo $id_utilisateur;
 $avoir = $bdd->query('SELECT liste_a_voir.id_anime, image_url_anime from liste_a_voir, anime where liste_a_voir.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur);
 #echo 'SELECT liste_a_voir.id_anime, image_url_anime from liste_a_voir, anime where liste_a_voir.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur;
@@ -107,7 +107,7 @@ $avoir-> closeCursor();
 $avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime from liste_vus, anime where liste_vus.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur);
 
 ?> </div> <div class="liste">
-	Liste animes vus : <br />
+	Liste animes vus : <br /> 
 	<?php
 	
 $non_vide2=FALSE;

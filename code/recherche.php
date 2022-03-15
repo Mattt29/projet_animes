@@ -20,7 +20,10 @@
 <body>
 
 <div class="acceuilhaut">
-<div id="profila">
+<p id='profil'>
+<div class="homepage"> <a href="index.php"> <i class="fa-solid fa-house"></i> </a>
+</div>
+</p> <div id="profila">
  
 
 <div class="iconesize"> <i class="fa-solid fa-user-large"></i></div>
@@ -131,7 +134,7 @@ $recherche=$_GET['recherche'];
 
 </p>
 </form>
-
+</td>
 <?php
  											}
  			else { 

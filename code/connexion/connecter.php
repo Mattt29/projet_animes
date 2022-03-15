@@ -22,11 +22,12 @@ include('../bd.php');
 	while ($ligne = $sql ->fetch()) {
 	$id_utilisateur=$ligne['id_utilisateur'];
 	$pseudo=$ligne['pseudo'];
+	#$id_pp=$ligne['id_photo_de_profil'];
 	$mdptest=$ligne['mdp'];
 	}  
 	$sql-> closeCursor();
 	
-if($mail=="" || $mdp=="" || !isset($id_utilisateur) || $id_utilisateur=="" || !isset($pseudo) || $pseudo=="" || !password_verify($mdp,$mdptest) ) {      
+if($mail=="" || $mdp=="" || !isset($id_utilisateur) || $id_utilisateur=="" || !isset($pseudo) || $pseudo=="" || !password_verify($mdp,$mdptest)  ) {      
 	echo 'Erreur de saisie, retour à la page de connexion';
 	echo '<meta http-equiv="Refresh" content="3; 
 	url=connexion.php?mail='.$mail.'"/>' ;
@@ -40,22 +41,13 @@ session_start();
 $_SESSION['utilisateur']=array();
 $_SESSION['utilisateur']['id_utilisateur']=$id_utilisateur;
 $_SESSION['utilisateur']['pseudo']=$pseudo;
+#$_SESSION['utilisateur']['id_photo_de_profil']=$id_pp;
 echo 'utilisateur  :';
 echo $_SESSION['utilisateur']['pseudo'];
 
 echo '<meta http-equiv="Refresh" content="4; 
 	url=../index.php"/>' ;	
 }	
-
-	/* 
-echo $mail.'<br />';
-echo $mdp.'<br />';
-echo $id_client.'<br />';
-echo $nom.'<br />';
-echo $prenom.'<br />';
- 
-*/
-	
 
 
 	?>

@@ -27,7 +27,7 @@
 
     <body>
         <p id='profil'>
-<div class="homepage"> <a href="index.php"> <i class="fa-solid fa-house"></i> </a>
+<div class="homepage"> <a href="../index.php"> <i class="fa-solid fa-house"></i> </a>
  </div>
        
         </p>

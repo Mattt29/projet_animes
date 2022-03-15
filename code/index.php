@@ -35,11 +35,16 @@
 
     else {
     echo  '<br />';
-    echo "Bonjour ";
-    echo $_SESSION['utilisateur']['pseudo']; 
-    ?>	
-    
-    <a href="profil/profil.php" >la<?php echo $_GET['id_photo_de_profil']; ?></a>    
+
+ 
+ 	 		$pp=$bdd->query('SELECT url_pp FROM utilisateur, photo_de_profil WHERE id_utilisateur='.$_SESSION['utilisateur']['id_utilisateur'].' and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil');
+ 			$lignepp=$pp->fetch();
+   ?> <a href="profil/profil.php" ><?php echo "<img class='pp' src='".$lignepp['url_pp']."' width='150' height='200'";?></a>    
+	<?php $pp->closeCursor();
+	
+	    echo "Bonjour ";
+    echo $_SESSION['utilisateur']['pseudo'];  ?>
+	
 	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php"> Se déconnecter </a> </p>
 	
 <div id="liste_anime">
@@ -158,7 +163,6 @@
 
         <td>
 <?php
-        session_start();
         if(isset($_SESSION['utilisateur']))
         { ?>
          <tr>
