@@ -6,6 +6,250 @@
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>      
 		<img src=img/background.png id=fondecran class=fondecran alt=/>
 		<title>Bienvenue sur list'animes</title>
+		<style>
+		.formulaire_ajouter_vu{
+			font-size: 20px;
+			margin-left: 100px;
+			margin-top: 50px;
+		}		
+		.formulaire_ajouter_voir{
+			font-size: 20px;
+			margin-left: 0px;
+			margin-top: 50px;
+		}		
+		</style>
+	</head>
+
+<body>
+
+<div class="acceuilhaut">
+<div id="profila">
+ 
+
+   <div class="homepage"> <a href="index.php"> <i class="fa-solid fa-house"></i> </a>
+ </div>
+<div id = "connexion" >
+<?php
+    session_start();
+    if(!isset($_SESSION['utilisateur']))
+    { ?>
+
+    <p id="Se_connecter"> <a href="connexion/connexion.php"> Se connecter </a> </p>
+
+    <?php }
+
+    else {
+    echo  '<br />';
+    echo "Bonjour ";
+    echo $_SESSION['utilisateur']['pseudo'];
+
+    ?>	
+	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php"> Se déconnecter </a> </p>
+	
+    <?php }?>
+    
+      
+
+</div>
+</div>
+
+
+<form method="GET" action="recherche.php">
+    
+    <input type="search" name="titre_anime" placeholder="Recherche anime.." id="barre_recherche" />
+    <input type="submit" value="Valider" id="bouton_validé" />
+</form>
+</div>
+
+<?php
+include("bd.php");
+$bdd =getBD();
+
+$id=$_SESSION['utilisateur']['id_utilisateur'];
+$id_anime=$_GET["id_anime"];
+
+
+$rep = $bdd->query('SELECT * from anime where id_anime='.$id_anime);
+
+$ligne = $rep ->fetch();
+
+?>
+
+<div class="titre_anime">
+<?php
+echo 'titre anime : '.$ligne['titre_anime']."<br /> <br />"; 
+?>
+</div>
+
+<div class="titre_anime_anglais">
+<?php
+if($ligne['titre_anime']!=$ligne['titre_anglais_anime']){
+	echo 'titre anglais anime : '.$ligne['titre_anglais_anime']."<br /> <br />"; 
+}
+?>
+</div>
+
+<div class="type_anime">
+<?php
+if($ligne['type_anime']!=""){
+	echo 'type anime : '.$ligne['type_anime']."<br /> <br />";
+}
+?>
+</div>
+
+<div class="note_anime">
+<?php
+if($ligne['note_generale_anime']!=0 & $ligne['nb_notes_anime']>=25){
+	echo $ligne['note_generale_anime']."<br /> <br />";
+}
+?>
+</div>
+
+<div class="nb_anime">
+<?php
+if($ligne['nb_episodes_anime']>1){
+	echo "nb d episode : ".$ligne['nb_episodes_anime']."<br /> <br />"; 
+}
+if($ligne['nb_episodes_anime']==1) {
+	echo "duree de l'anime (film) : ".$ligne['duree_anime']."<br /> <br />";
+}
+?>
+</div>
+
+<div class="rang_anime">
+<?php
+if($ligne['rang_anime']!=15000) {
+	echo 'rang anime : '.$ligne['rang_anime']."<br /> <br />"; 
+}
+?>
+</div>
+
+<div class="date_anime">
+<?php
+if($ligne['date_anime']!="" & $ligne['type_anime']!="Movie") {
+	echo 'Date de début et de fin : '.$ligne['date_anime']."<br /> <br />"; 
+}
+if($ligne['date_anime']!="" & $ligne['type_anime']=="Movie") {
+	echo 'Date de sortie : '.$ligne['date_anime']."<br /> <br />"; 
+}
+?>
+</div>
+
+<div  class="genre_anime">
+<?php
+if($ligne['genre_anime']!="") {
+	echo 'Genres de l anime : '.$ligne['genre_anime']."<br /> <br />"; 
+}
+?>
+</div>
+
+
+<div class="img_anime">
+<?php
+$a="";
+echo "<img src=".$ligne["image_url_anime"]." ' width='400' height='400' alt='".$a."'/>";
+?>
+</div>
+
+<div class="img_defaut">
+<?php
+echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15119f2a7.png ' width='400' height='400' alt='".$a."'/>";
+?>
+</div>
+
+<div class="ajout_liste">
+<?php
+$rep-> closeCursor(); 
+
+############################# AJOUT LISTES #################################
+	$verif_vu = $bdd->query('SELECT id_anime,note_utilisateur from liste_vus where id_anime='.$id_anime.' and id_utilisateur='.$id);
+	$ligne_vu = $verif_vu->fetch();
+	$test_anime=$ligne_vu['id_anime'];
+	$note=$ligne_vu['note_utilisateur'];
+	$verif_vu -> closeCursor();
+if(empty($test_anime) || $test_anime==""){
+?>
+
+<div class="formulaire_ajouter_vu">
+
+<form  action="liste_animes/ajouter_anime_vu.php" method="post" autocomplete="off">
+<p>
+<input type="hidden" name="id_anime" value="<?php echo $id_anime ?>"/>
+</p>
+
+<p>
+Note : 
+<input type="number" name="note" step="0.5" min="0" max="10"/>
+</p>
+
+
+<p>
+<input type="submit" value="Ajouter à ma liste des animes vus">
+
+</p>
+</form>
+<?php } 
+else{ echo 'Ma note : '.$note.'<br><br><br>';
+echo 'Anime déjà ajouté à la liste des animes vus <br>';
+?>
+<form  action="liste_animes/modifier_note.php" method="post" autocomplete="off">
+<p>
+<input type="hidden" name="id_anime" value="<?php echo $id_anime ?>"/>
+</p>
+<p>
+Modifier ma note : 
+<input type="number" name="note" step="0.5" min="0" max="10"/>
+</p>
+
+<p>
+<input type="submit" value="Valider la modification">
+
+</p>
+</form>
+</div>
+<?php
+}
+
+
+$verif_a_voir = $bdd->query('SELECT id_anime from liste_a_voir where id_anime='.$id_anime.' and id_utilisateur='.$id);
+	$ligne_a_voir = $verif_a_voir->fetch();
+	$test_anime1=$ligne_a_voir['id_anime'];
+	$verif_a_voir -> closeCursor();
+if(empty($test_anime1) || $test_anime1==""){
+?>
+<div class="formulaire_ajouter_voir">
+<form  action="liste_animes/ajouter_anime_a_voir.php" method="post" autocomplete="off">
+<p>
+<input type="hidden" name="id_anime" value="<?php echo $id_anime ?>"/>
+</p>
+
+<p>
+<input type="submit" value="Ajouter à ma liste des animes à voir">
+
+</p>
+</form>
+</div>
+
+<?php } 
+else{
+echo 'Anime déjà ajouté à la liste des animes à voir';
+}
+?>
+
+
+</div>
+</body>
+
+
+
+</html><!DOCTYPE html>
+	<html>
+	<head>
+		<link rel="stylesheet" href="styles/main.css" type="text/css" media="screen" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+        <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>      
+		<img src=img/background.png id=fondecran class=fondecran alt=/>
+		<title>Bienvenue sur list'animes</title>
      
 	</head>
 
