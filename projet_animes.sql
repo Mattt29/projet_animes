@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 20 mars 2022 à 20:58
+-- Généré le : lun. 21 mars 2022 à 13:49
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -13349,14 +13349,16 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   PRIMARY KEY (`id_commentaire`),
   KEY `ECRIRE` (`id_utilisateur`),
   KEY `APPARTENIR` (`id_discussion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commentaires`
 --
 
 INSERT INTO `commentaires` (`id_commentaire`, `message`, `id_discussion`, `id_utilisateur`) VALUES
-(1, 'c\'est moi juju le fifou ', 1, 7);
+(1, 'c\'est moi juju le fifou ', 1, 7),
+(2, 'c\'est mon nniversaire\r\n', 2, 5),
+(3, 'coucou t\'es fou', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -13372,14 +13374,15 @@ CREATE TABLE IF NOT EXISTS `discussion` (
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id_discussion`),
   KEY `CREER` (`id_utilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `discussion`
 --
 
 INSERT INTO `discussion` (`id_discussion`, `titre_discussion`, `date_discussion`, `id_utilisateur`) VALUES
-(1, 'test je suis naruto lol ahah', '2022-03-14 22:23:48', 5);
+(1, 'test je suis naruto lol ahah', '2022-03-14 22:23:48', 5),
+(2, 'bonjour', '2001-06-06 00:00:00', 5);
 
 -- --------------------------------------------------------
 
@@ -13479,12 +13482,10 @@ CREATE TABLE IF NOT EXISTS `photo_de_profil` (
 --
 
 INSERT INTO `photo_de_profil` (`id_photo_de_profil`, `url_pp`) VALUES
-(0, 'img/profil_defaut.png'),
-(2, 'img/pp_naruto.jpg'),
+(0, 'img/pp_naruto.jpg'),
 (11, 'img/pp_chihiro.jpg'),
 (12, 'img/pp_dn.jpg'),
 (13, 'img/pp_dragon_ball.jpg'),
-(14, 'img/pp_naruto.jpg'),
 (15, 'img/pp_one_piece.jpg'),
 (16, 'img/pp_snk.jpg'),
 (17, 'img/pp1.jpg');
@@ -13506,7 +13507,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id_photo_de_profil` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_utilisateur`),
   KEY `a_choisi` (`id_photo_de_profil`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -13515,12 +13516,13 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `pseudo`, `mail`, `mdp`, `id_photo_de_profil`) VALUES
 (3, 'l', 'l', 'l', 'l', 'l', 0),
 (4, 'salut', 'je teste', 'si ca marche', 'peut', 'etre', 0),
-(5, 'Pascual', 'Julien', 'fifi', 'juju@sfr.fr', '$2y$10$.b54QFlI7oYMyGE/nyIkO.ytcuE3Woee7VJU9igm9hB27/t/ohThC', 0),
-(6, 'Grammatico', 'Matthieu', 'Mattt29', 'matthieugrammatico@gmail.com', '$2y$10$4o5HGEjxfvu.dmvABfaZUeFJW1PWKVoT9pttz8N2jnzwD/7SDZ3Lu', 14),
+(5, 'Pascual', 'Julien', 'fifi', 'juju@sfr.fr', '$2y$10$.b54QFlI7oYMyGE/nyIkO.ytcuE3Woee7VJU9igm9hB27/t/ohThC', 15),
+(6, 'Grammatico', 'Matthieu', 'Mattt29', 'matthieugrammatico@gmail.com', '$2y$10$4o5HGEjxfvu.dmvABfaZUeFJW1PWKVoT9pttz8N2jnzwD/7SDZ3Lu', 0),
 (7, 'a', 'a', 'a', 'a', '$2y$10$QD2FOv.AXqXWFx6iAGsQWuLFlz5amqy5ZTSJ2p/5OrTaw1UXvT6Wm', 0),
 (8, 'a', 'a', 'a', 'a', '$2y$10$gxXzatEt.6PZcpr7VKp/0uh2N2WCS/xTeMozkSY7A2cKnLEbWCR4y', 0),
 (9, 'Hugo', 'Bayet', 'anderbro', 'hugo@gmail.com', '$2y$10$hQ9T.eeGFw8SrjSpmuiXgubHPnywuFb3NGfulFx5J9DfDJaEjm.UC', 0),
-(10, 'test', 'voir', 'si ', 'a', '$2y$10$6wZParXzVfykuVDvlsyP3e77HW1UcZdN2iOcOcgGbPP2zgUdUOHBW', 0);
+(10, 'test', 'voir', 'si ', 'a', '$2y$10$6wZParXzVfykuVDvlsyP3e77HW1UcZdN2iOcOcgGbPP2zgUdUOHBW', 0),
+(11, 'test', 'photo', 'de', 'profil', '$2y$10$02ttw/lhrpl9UKjbvavjgOHiiMBTSpL96tD/jSVtuLiAgeYYZr5TG', 0);
 
 --
 -- Contraintes pour les tables déchargées
