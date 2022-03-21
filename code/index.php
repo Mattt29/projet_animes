@@ -145,13 +145,14 @@
         <?php
         
         
-        $rep = $bdd->query('select titre_discussion from discussion');
+        $rep = $bdd->query('select * from discussion');
 
 
         
         
         while( $i<4 && $ligne = $rep -> fetch() ){ 
-        echo "<tr><td>".$ligne['titre_discussion']."</td>";
+            
+        echo "<tr><td> <a href ="."discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td>";
         $i=$i+1;
         } 
 
