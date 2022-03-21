@@ -67,24 +67,6 @@
 </div>
 
 
-<?php
-
-  
- $rep = $bdd->query('select * from anime');
- 
- if(isset($_GET['titre_anime']) AND !empty($_GET['titre_anime'])) {
-    $q = htmlspecialchars($_GET['titre_anime']);
-    $articles = $bdd->query('SELECT titre_anime FROM anime WHERE titre_anime LIKE "%'.$q.'%" ORDER BY id_anime DESC');
-    if($articles->rowCount() == 0) {
-       $articles = $bdd->query('SELECT titre_anime FROM anime WHERE CONCAT(titre_anime, contexte_anime) LIKE "%'.$q.'%" ORDER BY id_anime DESC');
-    }
- }
-    $rep -> closeCursor();           
-
-    ?>
-
-
-
 <form method="GET" action="recherche.php" autocomplete="on">
     
     <input type="search" name="recherche"  placeholder="Recherche anime.." id="barre_recherche" />
@@ -110,7 +92,7 @@ echo $mat['titre_discussion'];
 
     echo "Pour ajouter un commentaire vous pouvez le faire  <a href ="."creation_commentaire.php?id_discussion=".$_GET['id_discussion']."> ici </a>"; 
     
-    $mat -> closeCursor();
+    $rep -> closeCursor();
     ?>
   
     
@@ -142,15 +124,7 @@ echo $mat['titre_discussion'];
     </div>
 
 
-    <div>
-    <?php
-    echo "Pour ajouter un commentaire vous pouvez le faire  <a href ="."discussions.php"."> ici </a>"; 
-    echo "rrhjtekjrhtekrj";
-    ?>
-    
 
-
-    </div>
 
 
 

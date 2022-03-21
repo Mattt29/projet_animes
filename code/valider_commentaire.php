@@ -58,7 +58,6 @@
 
 <?php 
         include ("bd.php");
-        session_start();
         function enregistrercom($message,$id_discussion,$id_utilisateur){
                 
             $bdd1=getBD();
@@ -73,7 +72,7 @@
         $texte=$_POST['adr'];
 
         $bdd3 = getBD();
-        $id_discu=$_GET['id_discussion'];
+        $id_discu=$_POST['id_discussion'];
 
         echo $id_util;
         echo $texte;

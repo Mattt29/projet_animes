@@ -105,7 +105,7 @@ Votre discussion a bien été enregistrée, vous allez être rediriger vers le f
 </p>
 
 <?php
-echo '<meta http-equiv="refresh" content="0; url=forum.php"/>';
+echo '<meta http-equiv="refresh" content="5; url=forum.php"/>';
 ?>
 
 </body>
