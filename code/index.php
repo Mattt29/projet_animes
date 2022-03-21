@@ -148,12 +148,12 @@
         $rep = $bdd->query('select * from discussion');
 
 
+        $i1=0;
         
-        
-        while( $i<4 && $ligne = $rep -> fetch() ){ 
+        while( $i1<4     && $ligne = $rep -> fetch() ){ 
             
-        echo "<tr><td> <a href ="."discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td>";
-        $i=$i+1;
+        echo "<tr><td> <a href ="."forum/discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td>";
+        $i1=$i1+1;
         } 
 
         $rep -> closeCursor();
@@ -163,12 +163,10 @@
          <tr>
 
         <td>
-<?php
+        <?php
         if(isset($_SESSION['utilisateur']))
         { ?>
-         <tr>
-
-        <td>
+        
         vous pouvez créer une discussion <a href="discussion.php">  ici </a>
         
          </td>
