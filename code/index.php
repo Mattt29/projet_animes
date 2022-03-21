@@ -167,7 +167,7 @@
         if(isset($_SESSION['utilisateur']))
         { ?>
         
-        vous pouvez créer une discussion <a href="discussion.php">  ici </a>
+        vous pouvez créer une discussion <a href="forum/creation_discussion.php">  ici </a>
         
          </td>
         </tr>
