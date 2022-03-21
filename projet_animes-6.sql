@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 21 fév. 2022 à 21:05
+-- Généré le : Dim 20 mars 2022 à 20:58
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -13349,7 +13349,14 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   PRIMARY KEY (`id_commentaire`),
   KEY `ECRIRE` (`id_utilisateur`),
   KEY `APPARTENIR` (`id_discussion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `commentaires`
+--
+
+INSERT INTO `commentaires` (`id_commentaire`, `message`, `id_discussion`, `id_utilisateur`) VALUES
+(1, 'c\'est moi juju le fifou ', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -13365,7 +13372,14 @@ CREATE TABLE IF NOT EXISTS `discussion` (
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id_discussion`),
   KEY `CREER` (`id_utilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `discussion`
+--
+
+INSERT INTO `discussion` (`id_discussion`, `titre_discussion`, `date_discussion`, `id_utilisateur`) VALUES
+(1, 'test je suis naruto lol ahah', '2022-03-14 22:23:48', 5);
 
 -- --------------------------------------------------------
 
@@ -13382,6 +13396,21 @@ CREATE TABLE IF NOT EXISTS `etre_ami` (
   KEY `id_utilisateur2` (`id_utilisateur1`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `etre_ami`
+--
+
+INSERT INTO `etre_ami` (`id_utilisateur`, `id_utilisateur1`, `date_ajout`) VALUES
+(5, 4, '2022-03-15 00:07:19'),
+(5, 6, '2022-03-20 21:11:23'),
+(5, 7, '2022-03-15 00:23:41'),
+(5, 8, '2022-03-15 21:27:37'),
+(6, 5, '2022-03-20 21:12:10'),
+(6, 7, '2022-03-15 20:14:09'),
+(6, 8, '2022-03-15 20:14:14'),
+(8, 5, '2022-03-15 21:20:23'),
+(9, 6, '2022-03-15 22:09:47');
+
 -- --------------------------------------------------------
 
 --
@@ -13395,6 +13424,15 @@ CREATE TABLE IF NOT EXISTS `liste_a_voir` (
   PRIMARY KEY (`id_anime`,`id_utilisateur`),
   KEY `num_utilisateur` (`id_utilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `liste_a_voir`
+--
+
+INSERT INTO `liste_a_voir` (`id_anime`, `id_utilisateur`) VALUES
+(1, 5),
+(2, 5),
+(3, 5);
 
 -- --------------------------------------------------------
 
@@ -13411,6 +13449,18 @@ CREATE TABLE IF NOT EXISTS `liste_vus` (
   KEY `num_utilisateur` (`id_utilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `liste_vus`
+--
+
+INSERT INTO `liste_vus` (`id_anime`, `id_utilisateur`, `note_utilisateur`) VALUES
+(1, 5, 6.5),
+(2, 5, 9.5),
+(2, 6, 7.5),
+(3, 5, 5.5),
+(10, 5, 8),
+(742, 5, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -13422,7 +13472,22 @@ CREATE TABLE IF NOT EXISTS `photo_de_profil` (
   `id_photo_de_profil` int(10) NOT NULL AUTO_INCREMENT,
   `url_pp` varchar(50) NOT NULL,
   PRIMARY KEY (`id_photo_de_profil`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `photo_de_profil`
+--
+
+INSERT INTO `photo_de_profil` (`id_photo_de_profil`, `url_pp`) VALUES
+(0, 'img/profil_defaut.png'),
+(2, 'img/pp_naruto.jpg'),
+(11, 'img/pp_chihiro.jpg'),
+(12, 'img/pp_dn.jpg'),
+(13, 'img/pp_dragon_ball.jpg'),
+(14, 'img/pp_naruto.jpg'),
+(15, 'img/pp_one_piece.jpg'),
+(16, 'img/pp_snk.jpg'),
+(17, 'img/pp1.jpg');
 
 -- --------------------------------------------------------
 
@@ -13437,19 +13502,25 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `prenom` varchar(30) NOT NULL,
   `pseudo` varchar(30) NOT NULL,
   `mail` varchar(50) NOT NULL,
-  `mdp` varchar(16) NOT NULL,
-  `id_photo_de_profil` int(11) DEFAULT NULL,
+  `mdp` varchar(160) NOT NULL,
+  `id_photo_de_profil` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_utilisateur`),
   KEY `a_choisi` (`id_photo_de_profil`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `pseudo`, `mail`, `mdp`, `id_photo_de_profil`) VALUES
-(1, 'pascual', 'julien', 'fifi', 'pascualjulien@fr.fr', '', NULL),
-(2, 'l', 'l', 'l', 'l', 'l', NULL);
+(3, 'l', 'l', 'l', 'l', 'l', 0),
+(4, 'salut', 'je teste', 'si ca marche', 'peut', 'etre', 0),
+(5, 'Pascual', 'Julien', 'fifi', 'juju@sfr.fr', '$2y$10$.b54QFlI7oYMyGE/nyIkO.ytcuE3Woee7VJU9igm9hB27/t/ohThC', 0),
+(6, 'Grammatico', 'Matthieu', 'Mattt29', 'matthieugrammatico@gmail.com', '$2y$10$4o5HGEjxfvu.dmvABfaZUeFJW1PWKVoT9pttz8N2jnzwD/7SDZ3Lu', 14),
+(7, 'a', 'a', 'a', 'a', '$2y$10$QD2FOv.AXqXWFx6iAGsQWuLFlz5amqy5ZTSJ2p/5OrTaw1UXvT6Wm', 0),
+(8, 'a', 'a', 'a', 'a', '$2y$10$gxXzatEt.6PZcpr7VKp/0uh2N2WCS/xTeMozkSY7A2cKnLEbWCR4y', 0),
+(9, 'Hugo', 'Bayet', 'anderbro', 'hugo@gmail.com', '$2y$10$hQ9T.eeGFw8SrjSpmuiXgubHPnywuFb3NGfulFx5J9DfDJaEjm.UC', 0),
+(10, 'test', 'voir', 'si ', 'a', '$2y$10$6wZParXzVfykuVDvlsyP3e77HW1UcZdN2iOcOcgGbPP2zgUdUOHBW', 0);
 
 --
 -- Contraintes pour les tables déchargées
