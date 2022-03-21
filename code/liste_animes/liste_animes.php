@@ -9,13 +9,10 @@ session_start();
 		<link rel="stylesheet" href="../styles/main.css" type="text/css" media="screen" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>      
-		<img src=../img/background.png id=fondecran class=fondecran alt=/>
+		<img src="../img/background.png" id=fondecran class=fondecran alt=""/>
 		<title>Bienvenue sur list'animes</title>
 		<style>
-			.liste{
-
-			border: 2px solid black;
-			}		
+				
 		</style>		
 		
 		
@@ -57,14 +54,10 @@ session_start();
 
 
 
-<form method="GET">
-
+<form method="GET" action="../recherche.php" autocomplete="on">
     
-
-    <input type="search" name="titre_anime" placeholder="Recherche anime.." id="barre_recherche" />
-
+    <input type="search" name="recherche"  placeholder="Recherche anime.." id="barre_recherche"  />
     <input type="submit" value="Valider" id="bouton_validé" />
-
 </form>
 
 </div>

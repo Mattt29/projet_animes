@@ -103,15 +103,18 @@ $recherche=$_GET['recherche'];
 	
 		while($ligne2 =$utilisateurs->fetch()) { ?>
     
-    	<tr><td><?php echo "<img class='pp' src='".$ligne2['url_pp']."' width='150' height='200'";?></td>
+    	<tr><td><?php echo "<img class='pp' src='".$ligne2['url_pp']."' width='150' height='200' >";?></td>
  		<td><?php echo $ligne2['pseudo'];?></td>
 		<?php if(isset($_SESSION['utilisateur']))
     {  		
  		
- 	  $ami = $bdd->query('SELECT * from etre_ami where (id_utilisateur='.$id.' and id_utilisateur1='.$ligne2['id_utilisateur'].') AND (id_utilisateur1='.$id.' and id_utilisateur='.$ligne2['id_utilisateur'].')  '); 
-		$ligne3 =$ami->fetch();
-		
-		if(empty($ligne3)) {		 		
+ 	  $ami = $bdd->query('SELECT * from etre_ami where (id_utilisateur='.$id.' and id_utilisateur1='.$ligne2['id_utilisateur'].') OR (id_utilisateur1='.$id.' and id_utilisateur='.$ligne2['id_utilisateur'].')  '); 
+		$i=0;		
+		while($ligne3 =$ami->fetch()){
+		$i=$i+1;	
+		}
+		#echo $i;
+		if($i!==2) {		 		
 		
 		$demande=$bdd->query('SELECT * from etre_ami where id_utilisateur='.$id.' and id_utilisateur1='.$ligne2['id_utilisateur']); 		
  		$lignedemande=$demande->fetch();
@@ -148,7 +151,7 @@ $recherche=$_GET['recherche'];
  	else {
  		?>
  		
- 		<td><?php echo '<a href ="fiche_utilisateur.php?id_utilisateur='.$ligne2['id_utilisateur'].'">Voir le profil</a>'?></td></tr>
+ 		<td><?php echo '<a href ="ami/profil_ami.php?id='.$ligne2['id_utilisateur'].'">Voir le profil</a>'?></td></tr>
  		<?php 
  		  }
  		  $ami -> closeCursor(); 

@@ -184,8 +184,6 @@ Note :
 </form>
 
 
-Ajouter à ma liste des animes à voir <br>
-Ajouter une note
 </div>
 
 </body>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
 
@@ -11,10 +14,9 @@
  
 	include('../bd.php');
 	$bdd =getBD();
-	$id=$_GET['id_photo_de_profil'];
-	$rep = $bdd->query('UPDATE utilisateur SET id_photo_de_profil='.$id.' WHERE '.$_SESSION["utilisateur"].'=utilisateur.id_photo_de_profil)');
-
-	echo 'yo';
+	$id_pp=$_GET['id_photo_de_profil'];
+	$id=$_SESSION['utilisateur']['id_utilisateur'];
+	$rep = $bdd->query('UPDATE utilisateur SET id_photo_de_profil='.$id_pp.' WHERE id_utilisateur='.$id);
 
  	echo '<meta http-equiv="Refresh" content="5; url=profil.php"/>';
 

@@ -1,6 +1,6 @@
 html {
-   
-	font-family: fantasy;
+   --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Pro";
+	font-fafmily: Brush Script MT, Brush Script Std, cursive,Helvetica,fangsong,SF Pro Text,SF Pro Icons,fantasy;
    	font-size: 1cm;
    	color: white;
     }
@@ -24,7 +24,18 @@ table, tr, td, th {
         margin-right: auto;
         margin-left: auto;
         color:black;
-    }    
+    }  
+    
+    table {
+background-color:white;
+opacity:70%;    
+    
+    }  
+    
+    th {
+    	font-family: Century Gothic;
+    	font-size: 70%;
+    }
 
 
 
@@ -77,8 +88,14 @@ table, tr, td, th {
 }
 
 
+#Se_connecter{
+	
+	}
 
-
+#Se_deconnecter{
+	ffloat:left;
+	margfin-left:30px;
+	}
 
 
 .img_anime{
@@ -182,6 +199,25 @@ footer{
 .homepage{
 	float: left;
 	color: black;
-]	
-	
-	
+}	
+
+#profil_ami{
+float:left;
+text-align: center;
+margin-left:50px;
+margin-top:100px;
+}	
+
+#liste_ami{
+float:right;
+}
+
+.liste{
+
+			border: 2px solid black;
+			}	
+
+#page_profil{
+margin-left:100px;
+
+}

@@ -40,7 +40,7 @@ session_start();
  		$ligneprofil=$profil->fetch();	
  		?> <tr><td><?php echo "<img class='pp' src='../".$ligneprofil['url_pp']."' width='150' height='200'";?></td>
  		<td><?php echo $ligneprofil['pseudo'];?></td>
- 		 <td><?php echo '<a href ="fiche_utilisateur.php?id_utilisateur='.$ligneprofil['id_utilisateur'].'">Voir le profil</a>'?></td>			
+ 		 <td><?php echo '<a href ="profil_ami.php?id='.$ligneprofil['id_utilisateur'].'">Voir le profil</a>'?></td>			
  			<td>
 <form  action="rejet_ami.php" method="post" autocomplete="off">
 <p>
