@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="styles/main.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="../styles/main.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
-        <img src=img/background.png id=fondecran class=fondecran alt=""/>
+        <img src=../img/background.png id=fondecran class=fondecran alt=""/>
            <?php
             
-            include ("bd.php");
+            include ("../bd.php");
             $bdd=getBD();
         
             $id=$_GET["id_discussion"];
@@ -15,7 +15,7 @@
            
             $rep = $bdd -> query("select * from discussion,commentaires where discussion.id_discussion=commentaires.id_discussion
             AND discussion.id_discussion='$id'");
-            $mat =  $rep -> fetch();
+            
             ?> 
     </head>
 
@@ -26,7 +26,7 @@
 <div id="profila">
  
 
-<div class="homepage"> <a href="index.php"> <i class="fa-solid fa-house"></i> </a>
+<div class="homepage"> <a href="../index.php"> <i class="fa-solid fa-house"></i> </a>
  </div>
 
 
@@ -87,40 +87,14 @@ echo $mat['titre_discussion'];
 
   <?php
     
-  
+while( $mat =  $rep -> fetch()){
     echo $mat['message'].'<br/>';
-
+}
     echo "Pour ajouter un commentaire vous pouvez le faire  <a href ="."creation_commentaire.php?id_discussion=".$_GET['id_discussion']."> ici </a>"; 
     
     $rep -> closeCursor();
     ?>
-  
-    
- 
 
-    
-
-    <?php
-    /*
-        session_start();
-
-        if(isset($_SESSION['client'])) {
-            echo "<form action="."../ajouter.php"." method="."post".">";  
-            echo "<p>";
-            echo  "<input type="."hidden"." name="."idart"." value="."$id".">";
-            echo "</p>";
-            echo "<p>";
-            echo "Combien d'exemplaires souhaitez vous ?";
-            echo  "<input type="."number"." name="."nbart"." value="."".">";
-            echo "</p>";
-            echo "<p>";
-            echo "<input type="."submit"." value="."valider panier"." >";
-            echo "</p>";
-
-            echo"</form>";
-           
-        }*/
-    ?>
     </div>
 
 
