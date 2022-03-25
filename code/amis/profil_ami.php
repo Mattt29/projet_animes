@@ -7,7 +7,7 @@ session_start();
   <link rel="stylesheet" href="../styles/main.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
-        <img src="../img/background.png" id="fondecran" class="fondecran" alt=""/>
+
 		  
 <title>Profil d'un ami</title>
 	     <?php
@@ -17,46 +17,7 @@ session_start();
 </head>
 
 <body>
-<div class="acceuilhaut">
-		<div id="profila">
-		<div class="homepage"> 
-			<a href="../index.php"> <i class="fa-solid fa-house"></i> </a>
-		</div>
 
-		<div id = "connexion" >
-			<?php
-				if(!isset($_SESSION['utilisateur'])){ ?>
-			   <p id="Se_connecter"> <a href="../connexion/connexion.php"> Se connecter </a> </p>
-    			<?php }
-    			else {
-    				echo  '<br />';
-					echo "Bonjour ";
-					echo $_SESSION['utilisateur']['pseudo'];
-				?>	
-
-	<p id="Se_deconnecter"> <a href="../connexion/deconnexion.php"> Se déconnecter </a> </p>
-
-	
-
-    <?php }?>
-
-
-
-</div>
-
-</div>
-
-
-
-
-
-<form method="GET" action="../recherche.php" autocomplete="on">
-    
-    <input type="search" name="recherche"  placeholder="Recherche anime.." id="barre_recherche"  />
-    <input type="submit" value="Valider" id="bouton_validé" />
-</form>
-
-</div>
 <?php 
 
 		if(isset($_SESSION['utilisateur'])&&isset($_GET['id'])) {
@@ -141,6 +102,11 @@ $avu-> closeCursor();
 															echo '<meta http-equiv="Refresh" content="2; url=../index.php"/>';
 															}
 ?>
+
+<div class="bandeau"> 
+<object data="../bandeau.php" width="100%" height="100%">
+</object>
+</div>
 </body>
 
 </html>

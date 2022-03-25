@@ -9,7 +9,7 @@ session_start();
 		<link rel="stylesheet" href="../styles/main.css" type="text/css" media="screen" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>      
-		<img src="../img/background.png" id=fondecran class=fondecran alt=""/>
+	<!--	<img src="../img/background.png" id=fondecran class=fondecran alt=""/> -->
 		<title>Bienvenue sur list'animes</title>
 		<style>
 				
@@ -20,7 +20,7 @@ session_start();
 
 
 <body>
-
+<!--
 	<div class=acceuilhaut>
 		<div id=profila>
 		<div class="homepage"> 
@@ -62,7 +62,7 @@ session_start();
 
 </div>
 
-
+-->
 
 <?php
 include("../bd.php");
@@ -139,7 +139,10 @@ $avu-> closeCursor();
 	?> <br />
 </div>
 -->
-
+<div class="bandeau"> 
+<object data="../bandeau.php" width="100%" height="100%">
+</object>
+</div>
 
 </body>
 

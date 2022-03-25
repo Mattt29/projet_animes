@@ -1,21 +1,13 @@
 <?php
 session_start();
 ?>
-
-
-
-
-
-
-
-
 <html>
 <head>
 
   <link rel="stylesheet" href="../styles/main.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
-        <img src="../img/background.png" id="fondecran" class="fondecran" alt=""/>
+
 
 
 <title>Rejet d'ami</title>
@@ -57,6 +49,10 @@ else {
 	echo '<meta http-equiv="Refresh" content="2; url=demandes_amis.php"/>';
 }
 ?>
+<div class="bandeau"> 
+<object data="../bandeau.php" width="100%" height="100%">
+</object>
+</div>
 </body>
 
 </html>

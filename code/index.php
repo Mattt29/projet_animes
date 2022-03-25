@@ -4,7 +4,6 @@
         <link rel="stylesheet" href="styles/main.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
-        <img src=img/background.png id=fondecran class=fondecran alt=""/>
         <title>Bienvenue sur list'animes</title>
         <?php
         include("bd.php") ;
@@ -15,7 +14,8 @@
 
 
     <body>
-   
+   <div class="page"> 
+  <!--
 <div class="acceuilhaut">
 <div id="profila">
  
@@ -91,7 +91,7 @@
 </form>
 
 
-</div>
+</div> -->
 
 
 
@@ -168,7 +168,6 @@
         { ?>
         
         vous pouvez créer une discussion <a href="forum/creation_discussion.php">  ici </a>
-        
          </td>
         </tr>
         <?php } ?>
@@ -180,8 +179,12 @@
 </table>
 </div>
 
+</div>
 
-
+<div class="bandeau"> 
+<object data="bandeau.php" width="100%" height="100%">
+</object>
+</div>
 
 </body>
 

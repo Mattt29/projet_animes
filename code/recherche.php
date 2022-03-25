@@ -1,15 +1,77 @@
+<?php
+session_start();
+?>
+
 <html>
     <head>
         <link rel="stylesheet" href="styles/main.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
-        <img src=img/background.png id=fondecran class=fondecran alt=""/>
+
         <style>
         
 			body {
 			font-size: 20px;			
 			}         
+			
+		#tab1, #tab2, #tab3{	 width: 100px;
+  height: 25px;
+  border-color: red;
+  background-color: white;
+  border-radius: 7px;
+}
+
+button:hover {
+color: red;
+}
         </style>
+<script language="javascript"> 
+
+document.getElementById("tab1").className = "highlight";
+document.getElementById("tab2").className = "none";
+  document.getElementById("tab3").className = "none";
+  document.getElementById("animes").style.display = "block";
+    document.getElementById("utilisateurs").style.display = "none";
+      document.getElementById("forums").style.display = "none";
+	
+document.getElementById("tab1").addEventListener("click", highlight1);
+document.getElementById("tab2").addEventListener("click", highlight2);
+document.getElementById("tab3").addEventListener("click", highlight3);
+
+//What happens when you click on tab 1:
+function highlight1() {
+console.log("Bonjour");
+  document.getElementById("tab1").className = "highlight";
+  document.getElementById("tab2").className = "none";
+  document.getElementById("tab3").className = "none";
+  document.getElementById("animes").style.display = "block";
+    document.getElementById("utilisateurs").style.display = "none";
+      document.getElementById("forums").style.display = "none";
+}
+//What happens when you click on tab 2:
+function highlight2() {
+
+  document.getElementById("tab2").className = "highlight";
+  document.getElementById("tab1").className = "none";
+  document.getElementById("tab3").className = "none";
+   document.getElementById("utilisateurs").style.display = "block";
+     document.getElementById("animes").style.display = "none";
+  document.getElementById("forums").style.display = "none";
+}
+//What happens when you click on tab 3:
+function highlight3() {
+    document.getElementById("tab2").className = "highlight";
+  document.getElementById("tab1").className = "none";
+  document.getElementById("tab3").className = "none";
+   document.getElementById("forums").style.display = "block";
+  document.getElementById("animes").style.display = "none";
+    document.getElementById("utilisateurs").style.display = "none";
+}
+
+
+
+</script>        
+        
         <title>Bienvenue sur list'animes</title>
         <?php
         include('bd.php') ;
@@ -19,68 +81,29 @@
 
 <body>
 
-<div class="acceuilhaut">
-<p id='profil'>
-<div class="homepage"> <a href="index.php"> <i class="fa-solid fa-house"></i> </a>
-</div>
-</p> <div id="profila">
- 
-
-<div class="iconesize"> <i class="fa-solid fa-user-large"></i></div>
-
-
-<div id = "connexion" >
-<?php
-    session_start();
-    if(!isset($_SESSION['utilisateur']))
-    { ?>
-
-    <p id="Se_connecter"> <a href="connexion/connexion.php"> Se connecter </a> </p>
-
-    <?php }
-
-    else {
-    echo  '<br />';
-    echo "Bonjour ";
-    echo $_SESSION['utilisateur']['pseudo'];
-    $id=$_SESSION['utilisateur']['id_utilisateur'];
-
-    ?>	
-	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php"> Se déconnecter </a> </p>
-	
-	  <?php }?>
-	  
-	  
-</div>
-</div>
-<?php
-$recherche=$_GET['recherche'];
-?>
-
-<form method="GET" action="recherche.php" autocomplete="on">
-    
-    <input type="search" name="recherche"  placeholder="Recherche anime.." id="barre_recherche" value="<?php echo $recherche ?>" />
-    <input type="submit" value="Valider" id="bouton_validé" />
-</form>
-
-
-
 <div class= "tableau" >
 <?php
 
-  
 # $rep = $bdd->query('select * from anime');
 # $rep -> closeCursor(); 
 
  if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
     $q = htmlspecialchars($_GET['recherche']);
     
+   ?> <div id="buttons">
+  <button id="tab1"><b>Animes</b></button>
+  <button id="tab2"><b>Utilisateurs</b></button>
+  <button id="tab3"><b>Forums</b></button>
+ 
+ 
+</div>
+<?php
     ### Animes ###
     $articles = $bdd->query('SELECT id_anime,titre_anime,type_anime,note_generale_anime,image_url_anime FROM anime WHERE titre_anime LIKE "%'.$q.'%" ORDER BY popularite_anime ASC ,note_generale_anime DESC, id_anime DESC LIMIT 10');
     if($articles->rowCount() == 0) {
        $articles = $bdd->query('SELECT id_anime,titre_anime,type_anime,note_generale_anime,image_url_anime FROM anime WHERE CONCAT(titre_anime, contexte_anime) LIKE "%'.$q.'%" ORDER BY popularite_anime ASC,note_generale_anime,id_anime DESC LIMIT 10');
     }
-    ?> <table>
+    ?> <table id="animes">
    
      <?php  
     while($ligne1 =$articles->fetch()) { ?>
@@ -98,16 +121,15 @@ $recherche=$_GET['recherche'];
 	
 	
 	<!-- ### Utilisateurs ### -->
-	<table>
+	<table id="utilisateurs">
 	  <?php  $utilisateurs = $bdd->query('SELECT id_utilisateur, pseudo, url_pp  FROM utilisateur, photo_de_profil WHERE pseudo LIKE "%'.$q.'%" and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil ORDER BY pseudo LIMIT 10');
 	
 		while($ligne2 =$utilisateurs->fetch()) { ?>
     
     	<tr><td><?php echo "<img class='pp' src='".$ligne2['url_pp']."' width='150' height='200' >";?></td>
  		<td><?php echo $ligne2['pseudo'];?></td>
-		<?php if(isset($_SESSION['utilisateur']))
-    {  		
- 		
+		<?php if(isset($_SESSION['utilisateur'])){  		
+ 		    $id=$_SESSION['utilisateur']['id_utilisateur'];
  	  $ami = $bdd->query('SELECT * from etre_ami where (id_utilisateur='.$id.' and id_utilisateur1='.$ligne2['id_utilisateur'].') OR (id_utilisateur1='.$id.' and id_utilisateur='.$ligne2['id_utilisateur'].')  '); 
 		$i=0;		
 		while($ligne3 =$ami->fetch()){
@@ -151,7 +173,7 @@ $recherche=$_GET['recherche'];
  	else {
  		?>
  		
- 		<td><?php echo '<a href ="ami/profil_ami.php?id='.$ligne2['id_utilisateur'].'">Voir le profil</a>'?></td></tr>
+ 		<td><?php echo '<a href ="amis/profil_ami.php?id='.$ligne2['id_utilisateur'].'">Voir le profil</a>'?></td></tr>
  		<?php 
  		  }
  		  $ami -> closeCursor(); 
@@ -166,13 +188,13 @@ $recherche=$_GET['recherche'];
 	
 	
 	<!-- ### Forum ### -->
-	<table>
+	<table id="forums">
 	  <?php  $forum = $bdd->query('SELECT id_discussion, titre_discussion, pseudo, discussion.id_utilisateur FROM discussion,utilisateur WHERE CONCAT(titre_discussion, pseudo) LIKE "%'.$q.'%" and discussion.id_utilisateur=utilisateur.id_utilisateur ORDER BY titre_discussion ASC, id_discussion DESC LIMIT 10');
 		#echo 
 		while($ligne4 =$forum->fetch()) { ?>  
     	<tr><td><?php echo $ligne4['titre_discussion'];?></td>
  		<td><?php echo $ligne4['pseudo'];?></td>
- 		<td><?php echo '<a href ="forum.php?id_discussion='.$ligne4['id_discussion'].'">Voir la discussion</a><br>';
+ 		<td><?php echo '<a href ="forum/forum.php?id_discussion='.$ligne4['id_discussion'].'">Voir la discussion</a><br>';
  		$messages = $bdd->query('SELECT COUNT(message) as msg from discussion,commentaires where discussion.id_discussion=commentaires.id_discussion and discussion.id_discussion='.$ligne4['id_discussion']); 
 		$ligne5 =$messages->fetch();
 		echo $ligne5['msg'].'  messages';
@@ -194,8 +216,10 @@ $recherche=$_GET['recherche'];
 </div>
 
 
-
-
+<div class="bandeau"> 
+<object data="bandeau.php" width="100%" height="100%">
+</object>
+</div>
 
 
 </body>

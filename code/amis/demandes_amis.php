@@ -7,7 +7,7 @@ session_start();
   <link rel="stylesheet" href="../styles/main.css" type="text/css" media="screen" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
-        <img src=../img/background.png id=fondecran class=fondecran alt=/>
+
 
 <title>Demandes d'amis</title>
 		  <?php
@@ -17,10 +17,7 @@ session_start();
 </head>
 
 <body>
-<p id='profil'>
-<div class="homepage"> <a href="../index.php"> <i class="fa-solid fa-house"></i> </a>
-</div>
-</p>
+
 <?php 
 
 		if(isset($_SESSION['utilisateur'])) {
@@ -77,7 +74,10 @@ session_start();
 ?>
 
 
-
+<div class="bandeau"> 
+<object data="../bandeau.php" width="100%" height="100%">
+</object>
+</div>
 </body>
 
 </html>
