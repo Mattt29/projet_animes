@@ -24,53 +24,14 @@ session_start();
 button:hover {
 color: red;
 }
+
+#animes, #utilisateurs, #forums{
+margidn-left: auto;
+mardgin-right: auto;
+
+}
         </style>
-<script language="javascript"> 
-
-document.getElementById("tab1").className = "highlight";
-document.getElementById("tab2").className = "none";
-  document.getElementById("tab3").className = "none";
-  document.getElementById("animes").style.display = "block";
-    document.getElementById("utilisateurs").style.display = "none";
-      document.getElementById("forums").style.display = "none";
-	
-document.getElementById("tab1").addEventListener("click", highlight1);
-document.getElementById("tab2").addEventListener("click", highlight2);
-document.getElementById("tab3").addEventListener("click", highlight3);
-
-//What happens when you click on tab 1:
-function highlight1() {
-console.log("Bonjour");
-  document.getElementById("tab1").className = "highlight";
-  document.getElementById("tab2").className = "none";
-  document.getElementById("tab3").className = "none";
-  document.getElementById("animes").style.display = "block";
-    document.getElementById("utilisateurs").style.display = "none";
-      document.getElementById("forums").style.display = "none";
-}
-//What happens when you click on tab 2:
-function highlight2() {
-
-  document.getElementById("tab2").className = "highlight";
-  document.getElementById("tab1").className = "none";
-  document.getElementById("tab3").className = "none";
-   document.getElementById("utilisateurs").style.display = "block";
-     document.getElementById("animes").style.display = "none";
-  document.getElementById("forums").style.display = "none";
-}
-//What happens when you click on tab 3:
-function highlight3() {
-    document.getElementById("tab2").className = "highlight";
-  document.getElementById("tab1").className = "none";
-  document.getElementById("tab3").className = "none";
-   document.getElementById("forums").style.display = "block";
-  document.getElementById("animes").style.display = "none";
-    document.getElementById("utilisateurs").style.display = "none";
-}
-
-
-
-</script>        
+      
         
         <title>Bienvenue sur list'animes</title>
         <?php
@@ -94,7 +55,7 @@ function highlight3() {
   <button id="tab1"><b>Animes</b></button>
   <button id="tab2"><b>Utilisateurs</b></button>
   <button id="tab3"><b>Forums</b></button>
- 
+<br> <br> <br> 
  
 </div>
 <?php
@@ -221,7 +182,52 @@ function highlight3() {
 </object>
 </div>
 
+<script language="javascript"> 
 
+document.getElementById("tab1").className = "highlight";
+document.getElementById("tab2").className = "none";
+  document.getElementById("tab3").className = "none";
+  document.getElementById("animes").style.display = "";
+    document.getElementById("utilisateurs").style.display = "none";
+      document.getElementById("forums").style.display = "none";
+	
+document.getElementById("tab1").addEventListener("click", highlight1);
+document.getElementById("tab2").addEventListener("click", highlight2);
+document.getElementById("tab3").addEventListener("click", highlight3);
+
+//What happens when you click on tab 1:
+function highlight1() {
+console.log("Bonjour");
+  document.getElementById("tab1").className = "highlight";
+  document.getElementById("tab2").className = "none";
+  document.getElementById("tab3").className = "none";
+  document.getElementById("animes").style.display = "";
+    document.getElementById("utilisateurs").style.display = "none";
+      document.getElementById("forums").style.display = "none";
+}
+//What happens when you click on tab 2:
+function highlight2() {
+
+  document.getElementById("tab2").className = "highlight";
+  document.getElementById("tab1").className = "none";
+  document.getElementById("tab3").className = "none";
+   document.getElementById("utilisateurs").style.display = "";
+     document.getElementById("animes").style.display = "none";
+  document.getElementById("forums").style.display = "none";
+}
+//What happens when you click on tab 3:
+function highlight3() {
+    document.getElementById("tab2").className = "highlight";
+  document.getElementById("tab1").className = "none";
+  document.getElementById("tab3").className = "none";
+   document.getElementById("forums").style.display = "";
+  document.getElementById("animes").style.display = "none";
+    document.getElementById("utilisateurs").style.display = "none";
+}
+
+
+
+</script>  
 </body>
 
 </html>

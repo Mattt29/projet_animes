@@ -87,7 +87,7 @@ font-size: 50px;
 
 body{
 
-width:1000px;
+widtdh:1000px;
 margin-left: auto;
 margin-right: auto;}
 
@@ -105,7 +105,7 @@ List'Animes
             $bdd=getBD();
         
 				if(!isset($_SESSION['utilisateur'])){ ?>
-			   <p id="Se_connecter"> <a href="connexion/connexion.php"> Se connecter </a> </p>
+			   <p id="Se_connecter"> <a href="connexion/connexion.php" target="_parent"> Se connecter </a> </p>
     			<?php }
     			else {
 	echo  '<br />';
@@ -115,7 +115,7 @@ List'Animes
     			
 				?>	
 		
-	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php"> Se déconnecter </a> </p>
+	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php" target="_parent"> Se déconnecter </a> </p>
 
 	
 
