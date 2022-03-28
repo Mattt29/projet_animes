@@ -7,6 +7,13 @@ session_start();
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
 <meta charset="UTF-8"/>
 <style>
+.profil{
+	margin-right: 200px;
+	margin-left: auto;
+	width: 150px;
+	margin-top: -150px;
+	margin-bottom: 50px;
+}
 ul {
 	height: 50px;
     list-style-type: none;
@@ -99,7 +106,7 @@ margin-right: auto;}
 List'Animes
 </h2>
 </div>
-<div class="titre" >
+<div class="profil" >
 			<?php
 			include ("bd.php");
             $bdd=getBD();
@@ -123,7 +130,7 @@ List'Animes
 echo  '<br />';$pp=$bdd->query('SELECT url_pp FROM utilisateur, photo_de_profil WHERE id_utilisateur='.$_SESSION['utilisateur']['id_utilisateur'].' and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil');
  			$lignepp=$pp->fetch();
    ?> 
-   <a href="profil/profil.php" style="position: absolute;top:20px;right:700px;" target="_parent"><?php echo "<img class='pp' src='".$lignepp['url_pp']."' width='150' height='150'";?></a>   
+   <a href="profil/profil.php" style="position: absolute;top:20px;right:20px;" target="_parent"><?php echo "<img class='pp' src='".$lignepp['url_pp']."' width='150' height='150'";?></a>   
 	<?php $pp->closeCursor();    
     }?>
 </div>
