@@ -13,6 +13,16 @@
      
 	</head>
 
+<style>
+
+p{
+    font-size: 30px;
+    margin-left:-250px;
+}
+
+
+</style>
+
 <body>
 
 
@@ -22,9 +32,14 @@
 
 <p>
             Titre de la discussion : 
-            <?php echo $_GET['id_discussion'];
+            <?php $_GET['id_discussion'];
+
             $popo =$_GET['id_discussion'] ;
-            echo $popo;?>
+            $rep = $bdd -> query("select * from discussion where discussion.id_discussion='$popo'");
+            
+            $mat1 =  $rep -> fetch();
+            echo $mat1['titre_discussion'];
+            ?>
 </p>
 
     <form action="valider_commentaire.php" method="post" autocomplete="off" >
@@ -42,9 +57,7 @@
         </p>
     </form></br>
 
-    <p>
-        <?php echo"<a href="."valider_commentaire.php?id_discussion=".$popo."> Envoyer</a>"?>
-    </p>
+  >
 
 <div class="bandeau"> 
 <object data="../bandeau.php" width="100%" height="100%">

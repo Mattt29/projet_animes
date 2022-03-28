@@ -24,7 +24,7 @@
                 
                 $bdd=getBD();
                 $toto = 'INSERT INTO `discussion`(`titre_discussion`, `date_discussion`, `id_utilisateur`) VALUES ("'.$titre_discussion.'","'.$date_discusison.'","'.$id_utilisateur.'")';
-                echo($toto);
+                
                 $bdd -> query($toto);
                 
                 
@@ -35,7 +35,6 @@
             function enregistrercom($message,$id_discussion,$id_utilisateur){
                 
                 $bdd1=getBD();
-                //$id_discussion =$bdd -> query('Select id_discusson from discussion');
                 $totol = 'INSERT INTO `commentaires`(`message`, `id_discussion`, `id_utilisateur`) VALUES ("'.$message.'","'.$id_discussion.'","'.$id_utilisateur.'")';
                 
                 $bdd1 -> query($totol);
@@ -51,7 +50,7 @@
             $bdd3 = getBD();
             enregistrerdiscu($titre,$date,$id_util);
             
-            echo $titre;
+            
             $id_discu = $bdd3 -> query('select id_discussion from discussion where titre_discussion ="'.$titre.'"');
             $ligne3 = $id_discu -> fetch();
             $id_discu=$ligne3['id_discussion'];

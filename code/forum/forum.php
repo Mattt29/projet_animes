@@ -33,7 +33,7 @@
         
         
         while( $ligne = $rep -> fetch() ){ 
-        echo $ligne['id_discussion'];
+        
         echo "<tr><td> <a href ="."discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td>";
         } 
 

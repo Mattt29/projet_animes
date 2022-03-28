@@ -9,10 +9,7 @@ session_start();
         <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>      
 
 		<title>Bienvenue sur list'animes</title>
-        <?php
-        //include("bd.php") ;
-        //$bdd = getBD();
-        ?>
+       
         
 	</head>
 
@@ -26,7 +23,6 @@ session_start();
         function enregistrercom($message,$id_discussion,$id_utilisateur){
                 
             $bdd1=getBD();
-            //$id_discussion =$bdd -> query('Select id_discusson from discussion');
             $totol = 'INSERT INTO `commentaires`(`message`, `id_discussion`, `id_utilisateur`) VALUES ("'.$message.'","'.$id_discussion.'","'.$id_utilisateur.'")';
             
             $bdd1 -> query($totol);
@@ -39,9 +35,7 @@ session_start();
         $bdd3 = getBD();
         $id_discu=$_POST['id_discussion'];
 
-        echo $id_util;
-        echo $texte;
-        echo $id_discu;
+      
         
         enregistrercom($texte,$id_discu,$id_util);   
         ?>
