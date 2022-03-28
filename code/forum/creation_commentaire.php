@@ -17,7 +17,7 @@
 
 p{
     font-size: 30px;
-    margin-left:-250px;
+    
 }
 
 

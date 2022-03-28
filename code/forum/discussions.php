@@ -24,9 +24,9 @@
 <style>
 
 table{
-    margin-left:-250px;
+    
     width:700px;
-    float : left;
+    
     text-align:left ;
     border: none
 }
@@ -84,8 +84,7 @@ echo $mat1['titre_discussion'];
     $mat2 = $user -> fetch();
     $pp=$bdd->query('SELECT url_pp FROM utilisateur, photo_de_profil WHERE id_utilisateur='.$_SESSION['utilisateur']['id_utilisateur'].' and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil');
     $lignepp=$pp->fetch();
-    
-    echo "../".$lignepp['url_pp'];
+
     
 
     echo "<tr><td id="."pseudo".">".$mat2['pseudo']."<img class='pp' src='../".$lignepp['url_pp']."' width='150' height='150'"."</td>";
