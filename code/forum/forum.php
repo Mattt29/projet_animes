@@ -7,6 +7,7 @@
 
 		<title>Bienvenue sur list'animes</title>
         <?php
+        session_start();
         include("../bd.php") ;
         $bdd = getBD();
         ?>
@@ -23,7 +24,7 @@
             <th>FORUM : discussions récentes</th>
         </tr>
         
-       <tr>
+       
         <?php
         
         
@@ -36,22 +37,24 @@
         
         echo "<tr><td> <a href ="."discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td>";
         } 
-
+        echo"</tr>";
         $rep -> closeCursor();
         ?> 
         
-        </tr>
-        <?php  
-        if(isset($_SESSION['client'])) {
-        echo" <tr>";
-
-        echo "<td>";
-
-        echo  "vous pouvez créer une discussion <a href="."discussion.php".">  ici </a>
-        </td>
-        </tr>";
-        }?>
         
+        <tr>
+
+    <td>
+    <?php
+    if(isset($_SESSION['utilisateur']))
+    { ?>
+
+    vous pouvez créer une discussion <a href="forum/creation_discussion.php">  ici </a>
+    </td>
+    </tr>
+    <?php } ?>
+</td>
+</tr>
     </tbody>
 </table>
 <div class="bandeau"> 
