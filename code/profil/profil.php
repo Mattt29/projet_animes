@@ -46,7 +46,7 @@ session_start();
 				?>
         <p> <a href="../amis/liste_amis.php"> Liste d'amis </a> </p>
         <p> <a href="../amis/demandes_amis.php"> Demandes d'amis </a> </p>
-        <p id="photo"> <a href="pp.php"> Changer de pp </a></p>
+        <p> <a href="pp.php"> Changer de pp </a></p>
 <?php } ?>
 
 </div>

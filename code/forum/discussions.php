@@ -11,10 +11,12 @@
             $bdd=getBD();
         
             $id=$_GET["id_discussion"];
-            
+    
            
-            $rep = $bdd -> query("select * from discussion,commentaires where discussion.id_discussion=commentaires.id_discussion
-            AND discussion.id_discussion='$id'");
+            $rep = $bdd -> query("SELECT DISTINCT * FROM discussion,commentaires,photo_de_profil,utilisateur WHERE commentaires.id_discussion=discussion.id_discussion             and utilisateur.id_utilisateur=commentaires.id_utilisateur
+            and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil
+            and commentaires.id_discussion='$id'");
+
             $rep1 = $bdd -> query("select * from discussion,commentaires where discussion.id_discussion=commentaires.id_discussion
             AND discussion.id_discussion='$id'");
             ?> 
@@ -42,7 +44,8 @@ td{
 #pseudo{
     color: #2e2e2e;
     font-size: 20px;
-    border-color:black;
+    text-align:center;
+    
 }
 
 #Titrearticle{
@@ -79,15 +82,10 @@ echo $mat1['titre_discussion'];
   <table>
   <?php
     while( $mat =  $rep -> fetch()){
-    $id_util=$_SESSION['utilisateur']['id_utilisateur'];
-    $user = $bdd -> query("select * from utilisateur where id_utilisateur=".$id_util);
-    $mat2 = $user -> fetch();
-    $pp=$bdd->query('SELECT url_pp FROM utilisateur, photo_de_profil WHERE id_utilisateur='.$_SESSION['utilisateur']['id_utilisateur'].' and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil');
-    $lignepp=$pp->fetch();
-
+    
     
 
-    echo "<tr><td id="."pseudo".">".$mat2['pseudo']."<img class='pp' src='../".$lignepp['url_pp']."' width='150' height='150'"."</td>";
+    echo "<tr><td id="."pseudo".">"."<img class='pp' src='../".$mat['url_pp']."' width='150' height='150'>"." ".$mat['pseudo']."</td>";
 
     echo "<td>".$mat['message'].'</td></tr>';
     }
