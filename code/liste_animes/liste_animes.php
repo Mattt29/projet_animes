@@ -20,6 +20,16 @@ session_start();
 
 
 <body>
+ <div class="edito"> 
+    <div class="image_bandeau">
+  <div class="img_index" style="background-image: url(../img/les_plus_beaux_animes.webp);">
+	<div class="texte_img_bandeau">
+	  Mes listes
+	</div>  
+
+  </div>
+  </div>
+</div>
 <!--
 	<div class=acceuilhaut>
 		<div id=profila>
@@ -99,7 +109,7 @@ $avoir-> closeCursor();
 
 $avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime from liste_vus, anime where liste_vus.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur);
 
-?> </div> <div class="liste">
+?> </div><br><br> <div class="liste">
 	Liste animes vus : <br /> 
 	<?php
 	

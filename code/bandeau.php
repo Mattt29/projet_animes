@@ -4,15 +4,20 @@ session_start();
 <html>
 <head>
        <!-- <img src=img/background.png id=fondecran class=fondecran alt=""/> -->
-        <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
+       <script src="https://kit.fontawesome.com/c6c76fd424.js" crossorigin="anonymous"></script>
 <meta charset="UTF-8"/>
 <style>
 .profil{
-	margin-right: 200px;
+font-family: verdana,Arial,'Helvetica Neue',Helvetica,sans-serif;
+	margin-right: 250px;
 	margin-left: auto;
 	width: 150px;
-	margin-top: -150px;
-	margin-bottom: 50px;
+	margin-top: -145px;
+	margin-bottom: 30px;
+color:white;
+
+text-align: center;
+bordefr:1px red dotted;
 }
 ul {
 	height: 50px;
@@ -20,7 +25,13 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    backgrgound-color: #333;
+    position: absolute;
+    top:208px;
+    borfder:1px red dotted;
+    right:0;
+    left:0;
+    font-family:Avenir;
 }
 
 li {
@@ -29,6 +40,7 @@ li {
 }
 
 li a {
+	    font-family:verdana;
     display: block;
     color: white;
     text-align: center;
@@ -36,6 +48,7 @@ li a {
     text-decoration: none;
     widfth: 50px;
     height: 25px;
+    font-size: 120%;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -54,9 +67,11 @@ li a:hover {
     widtfh:200px;
     height:30px; 
     floaft:top;
-	font-size: 20px;
+	font-size: 18px;
+	text-align: center;
 	top:9px;
 	right:50px;
+	font-family: verdana;
     
 }
 #bouton_valide{
@@ -67,6 +82,7 @@ li a:hover {
 	font-size: 20px;
 	top:9px;
 	right: 50px;
+	font-family: tahoma;
 
 }
 
@@ -78,9 +94,30 @@ margin-bottom: 30px;
 
 h2 {
 font-size: 50px;
-
+width:300px ;
+height:80px;
+borfder:1px dotted red;
+padding:0;
+padding-left: 100px;
 }
 
+#Se_connecter{
+	    border: white 2px solid;
+    border-radius: 2px;
+    display: inline-block;
+ bro:verdana,Avenir,lucida grande,tahoma,verdana,arial,sans-serif;
+    font-family: tahoma;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-left: 8px;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+    color: white;
+
+}
 #fondecran {
 		/* Fixe l'image en haut à gauche de la page */
 		position: fixed; 
@@ -91,19 +128,25 @@ font-size: 50px;
 		min-width: 100%;
 		min-height: 100%;
 	   }	
-
+*{
+	margin-left:0;
+	margin-right: 0;
+	padding:0;
+	
+	}
 body{
+backgrofund-color: blue;
 
 widtdh:1000px;
-margin-left: auto;
-margin-right: auto;}
+left:0;
+right: 0;}
 
 </style>
 </head>
 <body>
 <div class="titre">
 <h2>
-List'Animes
+<img src="img/list_anim_blanc.png" width="320px" height="80px" alt=""/>
 </h2>
 </div>
 <div class="profil" >
@@ -112,7 +155,7 @@ List'Animes
             $bdd=getBD();
         
 				if(!isset($_SESSION['utilisateur'])){ ?>
-			   <p id="Se_connecter"> <a href="connexion/connexion.php" target="_parent"> Se connecter </a> </p>
+			   <pid="Se_connecter"> <a href="connexion/connexion.php" id="Se_connecter" style="margin-top: 40px;"target="_parent" > Se connecter </a> </p>
     			<?php }
     			else {
 	echo  '<br />';
@@ -122,7 +165,7 @@ List'Animes
     			
 				?>	
 		
-	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php" target="_parent"> Se déconnecter </a> </p>
+	<p> <a href="connexion/deconnexion.php" id="Se_connecter" target="_parent"> Se déconnecter </a> </p>
 
 	
 
@@ -130,7 +173,7 @@ List'Animes
 echo  '<br />';$pp=$bdd->query('SELECT url_pp FROM utilisateur, photo_de_profil WHERE id_utilisateur='.$_SESSION['utilisateur']['id_utilisateur'].' and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil');
  			$lignepp=$pp->fetch();
    ?> 
-   <a href="profil/profil.php" style="position: absolute;top:20px;right:20px;" target="_parent"><?php echo "<img class='pp' src='".$lignepp['url_pp']."' width='150' height='150'";?></a>   
+   <a href="profil/profil.php" style="position: absolute;top:30px;right:50px;" target="_parent"><?php echo "<img class='pp' src='".$lignepp['url_pp']."' width='150' height='150'";?></a>   
 	<?php $pp->closeCursor();    
     }?>
 </div>
@@ -138,9 +181,10 @@ echo  '<br />';$pp=$bdd->query('SELECT url_pp FROM utilisateur, photo_de_profil 
 
 
 <ul>
+
 <li>
 			<a href="index.php" target="_parent"> <i class="fa-solid fa-house"></i> </a>
-			</li>
+			</li> 
 
 			<li>
 			<a href="forum/forum.php" target="_parent">Forum</a>

@@ -10,16 +10,7 @@ session_start();
 
 		<title>Bienvenue sur list'animes</title>
 		<style>
-		.formulaire_ajouter_vu{
-			font-size: 20px;
-			margin-left: 100px;
-			margin-top: 50px;
-		}		
-		.formulaire_ajouter_voir{
-			font-size: 20px;
-			margin-left: 0px;
-			margin-top: 50px;
-		}		
+		
 		</style>
 	</head>
 
@@ -28,8 +19,9 @@ session_start();
 <?php
 include("bd.php");
 $bdd =getBD();
-
+if(isset($_SESSION['utilisateur'])) {
 $id=$_SESSION['utilisateur']['id_utilisateur'];
+}
 $id_anime=$_GET["id_anime"];
 
 
@@ -41,14 +33,14 @@ $ligne = $rep ->fetch();
 
 <div class="titre_anime">
 <?php
-echo 'titre anime : '.$ligne['titre_anime']."<br /> <br />"; 
+echo 'Titre : '.$ligne['titre_anime']."<br /> <br />"; 
 ?>
 </div>
 
 <div class="titre_anime_anglais">
 <?php
 if($ligne['titre_anime']!=$ligne['titre_anglais_anime']){
-	echo 'titre anglais anime : '.$ligne['titre_anglais_anime']."<br /> <br />"; 
+	echo 'Titre anglais : '.$ligne['titre_anglais_anime']."<br /> <br />"; 
 }
 ?>
 </div>
@@ -56,7 +48,7 @@ if($ligne['titre_anime']!=$ligne['titre_anglais_anime']){
 <div class="type_anime">
 <?php
 if($ligne['type_anime']!=""){
-	echo 'type anime : '.$ligne['type_anime']."<br /> <br />";
+	echo 'Type : '.$ligne['type_anime']."<br /> <br />";
 }
 ?>
 </div>
@@ -72,10 +64,10 @@ if($ligne['note_generale_anime']!=0 & $ligne['nb_notes_anime']>=25){
 <div class="nb_anime">
 <?php
 if($ligne['nb_episodes_anime']>1){
-	echo "nb d episode : ".$ligne['nb_episodes_anime']."<br /> <br />"; 
+	echo "Nombre d'épisodes : ".$ligne['nb_episodes_anime']."<br /> <br />"; 
 }
 if($ligne['nb_episodes_anime']==1) {
-	echo "duree de l'anime (film) : ".$ligne['duree_anime']."<br /> <br />";
+	echo "Durée (film) : ".$ligne['duree_anime']."<br /> <br />";
 }
 ?>
 </div>
@@ -83,7 +75,7 @@ if($ligne['nb_episodes_anime']==1) {
 <div class="rang_anime">
 <?php
 if($ligne['rang_anime']!=15000) {
-	echo 'rang anime : '.$ligne['rang_anime']."<br /> <br />"; 
+	echo 'Rang : '.$ligne['rang_anime']."<br /> <br />"; 
 }
 ?>
 </div>
@@ -102,7 +94,7 @@ if($ligne['date_anime']!="" & $ligne['type_anime']=="Movie") {
 <div  class="genre_anime">
 <?php
 if($ligne['genre_anime']!="") {
-	echo 'Genres de l anime : '.$ligne['genre_anime']."<br /> <br />"; 
+	echo 'Genres : '.$ligne['genre_anime']."<br /> <br />"; 
 }
 ?>
 </div>
@@ -125,6 +117,7 @@ echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15
 <?php
 $rep-> closeCursor(); 
 
+if(isset($id)) {
 ############################# AJOUT LISTES #################################
 	$verif_vu = $bdd->query('SELECT id_anime,note_utilisateur from liste_vus where id_anime='.$id_anime.' and id_utilisateur='.$id);
 	$ligne_vu = $verif_vu->fetch();
@@ -134,7 +127,7 @@ $rep-> closeCursor();
 if(empty($test_anime) || $test_anime==""){
 ?>
 
-<div class="formulaire_ajouter_vu">
+
 
 <form  action="liste_animes/ajouter_anime_vu.php" method="post" autocomplete="off">
 <p>
@@ -170,7 +163,7 @@ Modifier ma note :
 
 </p>
 </form>
-</div>
+
 <?php
 }
 
@@ -181,7 +174,7 @@ $verif_a_voir = $bdd->query('SELECT id_anime from liste_a_voir where id_anime='.
 	$verif_a_voir -> closeCursor();
 if(empty($test_anime1) || $test_anime1==""){
 ?>
-<div class="formulaire_ajouter_voir">
+
 <form  action="liste_animes/ajouter_anime_a_voir.php" method="post" autocomplete="off">
 <p>
 <input type="hidden" name="id_anime" value="<?php echo $id_anime ?>"/>
@@ -192,11 +185,13 @@ if(empty($test_anime1) || $test_anime1==""){
 
 </p>
 </form>
-</div>
+
 
 <?php } 
 else{
 echo 'Anime déjà ajouté à la liste des animes à voir';
+}
+
 }
 ?>
 

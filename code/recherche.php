@@ -11,7 +11,9 @@ session_start();
         <style>
         
 			body {
-			font-size: 20px;			
+			font-size: 20px;
+
+
 			}         
 			
 		#tab1, #tab2, #tab3{	 width: 100px;
@@ -19,16 +21,27 @@ session_start();
   border-color: red;
   background-color: white;
   border-radius: 7px;
+ 
 }
+
+
 
 button:hover {
 color: red;
 }
 
+#buttons{
+	text-align: center;
+	dispflay: block;
+	width: 800px;
+margin:0 auto;
+margin-left: 200px;
+}
 #animes, #utilisateurs, #forums{
-margidn-left: auto;
-mardgin-right: auto;
-
+margin-left: auto;
+margin-right: auto;
+width: 800px;
+margin-left: 200px;
 }
         </style>
       

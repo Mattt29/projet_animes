@@ -9,12 +9,54 @@
         include("bd.php") ;
         $bdd = getBD();
         ?>
+        
+        <style>
+        
+        
+.edito{
+margin-bottom: 0;
+padding-bottom: 0;
+
+
+right:0;
+left:0;
+top:0;
+width: 100%;
+}        
+
+*{
+bocrder:1px red dotted;
+}
+
+.image_bandeau{   
+    padding: 0 15px 24%;
+    position: relative;
+    width: 100%;
+    height: 0px;
+    bordfer-bottom: 1px solid grey;
+ }
+ 
+ 
+.img_index{
+    background-size: contain;
+    min-height: 300px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}       
+        </style>
     </head>
 
 
 
     <body>
-   <div class="page"> 
+    <div class="edito"> 
+    <div class="image_bandeau">
+  <div class="img_index" style="background-image: url(img/les_animes_japonais_avec_les_meilleurs_bandes_son.jpg);">
+  
+  </div>
+  </div>
+</div>
   <!--
 <div class="acceuilhaut">
 <div id="profila">
@@ -179,7 +221,7 @@
 </table>
 </div>
 
-</div>
+
 
 <div class="bandeau"> 
 <object data="bandeau.php" width="100%" height="100%">
