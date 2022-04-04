@@ -69,11 +69,54 @@ include("bd.php");
 $bdd =getBD();
 $id_utilisateur=$_SESSION['utilisateur']['id_utilisateur'];
 
+//enregistrer l'identifiant le plus élevé
+$nb=$bdd->query('SELECT id_utilisateur FROM utilisateur ORDER BY id_utilisateur DESC LIMIT 1');
+$id=0;
+while($ligne =$nb->fetch()) {	
+$id+=$ligne[0];
+}
+
+echo $id;
+$j=1;
+while($j<=$id) {
+	echo $j;
+	$liste=$bdd->query('SELECT id_anime, id_utilisateur FROM liste_vus where liste_vus.id_utilisateur='.$j);
+	$vus=array();
+	$rep = $bdd->query('select id_anime from anime');
+	$i=1;
+		while($i<=13211){
+			if($rep->fetch()==$liste->fetch()) {
+				array_push($vus, 1);
+			}
+			else{
+				array_push($vus, 0);	
+			}
+			$i=$i+1;
+		}
+		print_r($vus, $return = null);
+	$rep ->closeCursor();
+	$j+=1;
+	}
+
+/**
+$nb=0;
+foreach($bdd->query('SELECT COUNT(*) FROM utilisateur') as $row) {
+echo "<tr>";
+$nb+=$row['COUNT(*)'];
+echo "<td>" . $row['COUNT(*)'] . "</td>";
+echo "</tr>";
+}
+$j=0;
+while($j<$nb) {
+	echo "la";
+	$j+=1;
+	}**/
+
+
 
 //$avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime from liste_vus, anime where liste_vus.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur);
-$avu = $bdd->query('SELECT id_anime FROM liste_vus where liste_vus.id_utilisateur='.$id_utilisateur);
-?> </div> <div class="liste">
-	<?php
+/*$avu = $bdd->query('SELECT id_anime FROM liste_vus where liste_vus.id_utilisateur='.$id_utilisateur);
+
 	
 
 $vus=array();
@@ -91,8 +134,8 @@ $i=1;
 print_r($vus, $return = null);
 $rep ->closeCursor(); 
 
-
-?> </div>
+*/
+?>
 
 <div class="bandeau"> 
 <object data="../bandeau.php" width="100%" height="100%">
