@@ -12,7 +12,9 @@ session_start();
 	<!--	<img src="../img/background.png" id=fondecran class=fondecran alt=""/> -->
 		<title>Bienvenue sur list'animes</title>
 		<style>
-				
+				a{
+					margin:10px;
+				}
 		</style>		
 		
 		
@@ -90,7 +92,7 @@ $avoir = $bdd->query('SELECT liste_a_voir.id_anime, image_url_anime from liste_a
 	$non_vide1=FALSE;
 while($ligne1 =$avoir->fetch()) {	
 
-echo "<a href=../fiche_anime.php?id_anime=".$ligne1['id_anime']."> <img src='".$ligne1['image_url_anime']."'> </a>";
+echo "<a href=../fiche_anime.php?id_anime=".$ligne1['id_anime']."><img src='".$ligne1['image_url_anime']."'></a>";
  
 
  #$id_anime_a_voir=$ligne1['id.anime']; 
@@ -115,7 +117,7 @@ $avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime from liste_vus, a
 	
 $non_vide2=FALSE;
 while($ligne2 =$avu->fetch()) {	
-echo "<a href=../fiche_anime.php?id_anime=".$ligne2['id_anime']."> <img src='".$ligne2['image_url_anime']."'> </a>";
+echo "<a href=../fiche_anime.php?id_anime=".$ligne2['id_anime']."><img src='".$ligne2['image_url_anime']."'></a>";
 #$id_anime_vus=$ligne2['id.anime']; 
 #$image_anime_vus=$ligne2['image_url_anime']; 
 $non_vide2=TRUE;

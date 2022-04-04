@@ -52,7 +52,7 @@ bocrder:1px red dotted;
     <body>
     <div class="edito"> 
     <div class="image_bandeau">
-  <div class="img_index" style="background-image: url(img/les_animes_japonais_avec_les_meilleurs_bandes_son.jpg);">
+  <div class="img_index" style="background-image: url(img/sword_art_online.png);">
   
   </div>
   </div>

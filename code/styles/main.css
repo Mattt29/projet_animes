@@ -138,14 +138,14 @@ td {
 .img_anime{
 	z-index: 2;
 	position: absolute;
-	left: 13%;
+	left: 16%;
 	top: 40%;
 }
 
 .img_defaut{
 	z-index: 1;
 	position: absolute;
-	left: 13%;
+	left: 16%;
 	top: 40%;
 }
 
@@ -153,28 +153,45 @@ td {
 	position: absolute;
 	left: 45%;
 	top: 40%;
+	font-size: 42px;
+    font-family: 'Lato',Arial,'Helvetica Neue',Helvetica,sans-serif;
+    font-weight: 700;
+    line-height: 44px;
+    margin-right: 10px;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 20%);
 }
 
 .titre_anime_anglais{
 	position: absolute;
-	left: 45%;
+	left: 55%;
 	top: 50%;
+	font-size: 25px;
+	font-style: oblique;
+font-weight: 100;
 }
 
 .type_anime{
 	position: absolute;
-	left: 45%;
+	left: 48%;
 	top: 45%;
+	font-size:20px;
 }
 
 .note_anime{
-	color: yellow;
+	color: white;
 	position: absolute;
-	left: 45%;
-	top: 80%;
-	background-image: url(../img/star.svg);
+	left: 65%;
+	top: 53%;
+	background-image: url(../img/etoilejaune.png);
+	background-size:90px 90px;
 	background-position: center;
 	background-repeat: no-repeat;
+	width: 100px;
+	height: 100px;
+	font-size: 60%;
+	padding-top: 70px;
+
+	text-align: center;
 }
 
 
@@ -197,6 +214,7 @@ td {
 	top: 75%;
 	text-align: right;
 	width: 800px;
+	font-size: 25px;
 }
 
 .genre_anime{
@@ -205,6 +223,7 @@ td {
 	top: 85%;
 	text-align: right;
 	width: 800px;
+	font-size: 25px;
 }
 
 
@@ -214,6 +233,7 @@ td {
 	top: 100%;
 	text-align: right;
 	width: 800px;
+	font-size: 25px;
 }
 
 .ajout_liste{
@@ -221,6 +241,7 @@ td {
 position: absolute;
 	left: 2%;
 	top: 95%;
+	right:55%;
 	background-color:#1d3557;
 	color:white;
 	text-align: center;
@@ -230,6 +251,25 @@ position: absolute;
 	font-size: 30px;
 }
 
+
+.bouton{
+font-family: tahoma;
+ border: white 2px solid;
+    border-radius: 2px;
+    color:white;
+	background-color:#1d3557;
+	font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+padding:5px;
+}
+
+
+.texte_ajout{
+font-size: 20px;
+font-weight: bold;
+
+}
 .formulaire_ajouter_vu{
 			position: absolute;
 			font-size: 20px;

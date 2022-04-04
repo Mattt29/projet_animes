@@ -56,9 +56,6 @@ li a:hover {
     background-color: #e1e7f5;
     color:#111;
 }
-.active {
-    background-color: #4CAF50;
-}
 
 
 
@@ -72,6 +69,9 @@ li a:hover {
 	top:9px;
 	right:50px;
 	font-family: verdana;
+	 border: white 2px solid;
+    border-radius: 2px;
+
     
 }
 #bouton_valide{
@@ -79,11 +79,17 @@ li a:hover {
     width:80px;
     height:30px; 
     floaft:top;
-	font-size: 20px;
-	top:9px;
+	fonft-size: 20px;
+	top:7.2px;
 	right: 50px;
 	font-family: tahoma;
-
+ border: white 2px solid;
+    border-radius: 2px;
+    color:white;
+	background-color:#1d3557;
+	font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
 }
 
 .titre { padding-left: 10px;

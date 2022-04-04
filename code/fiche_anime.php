@@ -10,7 +10,10 @@ session_start();
 
 		<title>Bienvenue sur list'animes</title>
 		<style>
-		
+		body{
+			
+			min-height: 850px;
+			}
 		</style>
 	</head>
 
@@ -33,14 +36,14 @@ $ligne = $rep ->fetch();
 
 <div class="titre_anime">
 <?php
-echo 'Titre : '.$ligne['titre_anime']."<br /> <br />"; 
+echo $ligne['titre_anime']."<br /> <br />"; 
 ?>
 </div>
 
 <div class="titre_anime_anglais">
 <?php
 if($ligne['titre_anime']!=$ligne['titre_anglais_anime']){
-	echo 'Titre anglais : '.$ligne['titre_anglais_anime']."<br /> <br />"; 
+	echo $ligne['titre_anglais_anime']."<br /> <br />"; 
 }
 ?>
 </div>
@@ -103,13 +106,13 @@ if($ligne['genre_anime']!="") {
 <div class="img_anime">
 <?php
 $a="";
-echo "<img src=".$ligne["image_url_anime"]." ' width='400' height='400' alt='".$a."'/>";
+echo "<img src=".$ligne["image_url_anime"]." ' width='225' height='350' alt='".$a."'/>";
 ?>
 </div>
 
 <div class="img_defaut">
 <?php
-echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15119f2a7.png ' width='400' height='400' alt='".$a."'/>";
+echo "<img src=https://i.pinimg.com/originals/03/8a/c3/038ac3da59e4b3d9416367d15119f2a7.png ' width='225' height='350' alt='".$a."'/>";
 ?>
 </div>
 
@@ -141,13 +144,13 @@ Note :
 
 
 <p>
-<input type="submit" value="Ajouter à ma liste des animes vus">
+<input class="bouton" type="submit" value="Ajouter à ma liste des animes vus">
 
 </p>
 </form>
 <?php } 
-else{ echo 'Ma note : '.$note.'<br><br><br>';
-echo 'Anime déjà ajouté à la liste des animes vus <br>';
+else{ echo 'Ma note : '.$note.'/10 <br><br>';
+echo '<p class="texte_ajout">Anime déjà ajouté à la liste des animes vus</p> <br>';
 ?>
 <form  action="liste_animes/modifier_note.php" method="post" autocomplete="off">
 <p>
@@ -159,7 +162,7 @@ Modifier ma note :
 </p>
 
 <p>
-<input type="submit" value="Valider la modification">
+<input class="bouton" type="submit" value="Valider la modification">
 
 </p>
 </form>
@@ -181,7 +184,7 @@ if(empty($test_anime1) || $test_anime1==""){
 </p>
 
 <p>
-<input type="submit" value="Ajouter à ma liste des animes à voir">
+<input class="bouton" type="submit" value="Ajouter à ma liste des animes à voir">
 
 </p>
 </form>
@@ -189,7 +192,7 @@ if(empty($test_anime1) || $test_anime1==""){
 
 <?php } 
 else{
-echo 'Anime déjà ajouté à la liste des animes à voir';
+echo '<br><p class="texte_ajout">Anime déjà ajouté à la liste des animes à voir</p>';
 }
 
 }

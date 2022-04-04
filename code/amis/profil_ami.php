@@ -56,7 +56,7 @@ session_start();
 	$non_vide1=FALSE;
 while($ligne3 =$avoir->fetch()) {	
 
-echo "<a href=../fiche_anime.php?id_anime=".$ligne3['id_anime']."> <img src='".$ligne3['image_url_anime']."'> </a>";
+echo "<a href=../fiche_anime.php?id_anime=".$ligne3['id_anime']."><img src='".$ligne3['image_url_anime']."'></a>";
  $non_vide1=TRUE;
 }
 
@@ -75,7 +75,7 @@ $avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime from liste_vus, a
 	
 $non_vide2=FALSE;
 while($ligne4 =$avu->fetch()) {	
-echo "<a href=../fiche_anime.php?id_anime=".$ligne4['id_anime']."> <img src='".$ligne4['image_url_anime']."'> </a>";
+echo "<a href=../fiche_anime.php?id_anime=".$ligne4['id_anime']."><img src='".$ligne4['image_url_anime']."'></a>";
 
 $non_vide2=TRUE;
 }
