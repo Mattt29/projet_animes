@@ -15,22 +15,58 @@
 
 <style>
 
+
+
 p{
-    font-size: 30px;
+    background-color:#4C7DC3;
+    height:100px;
+    text-align:center;
+    margin-left:400px;
+    margin-right:400px;
+    font-family: tahoma; 
+    color: white;
+}
+form{
     
+    color:#4C7DC3;
+}
+#bouton_env{
+    width: 200px;
+    height: 40px;
+    margin-right:40px;
+	position:relative;
+    float:right; 
+	font-family: tahoma;
+    border: white 2px solid;
+    border-radius: 2px;
+    color:white;
+	background-color:#4C7DC3;
+    font-size:20px;
+	
+}
+#pres{ 
+    font-size:40px ;
+    padding-bottom:20px;
 }
 
 
+.infos{
+    
+    font-size:25px;
+
+}
 </style>
+
+
 
 <body>
 
 
-<p>
+<p id="pres">
     Bonjour, voici les informations nécéssaires pour créer un commentaire : </br>
 </p>
 
-<p>
+<p class="infos">
             Titre de la discussion : 
             <?php $_GET['id_discussion'];
 
@@ -43,17 +79,17 @@ p{
 </p>
 
     <form action="valider_commentaire.php" method="post" autocomplete="off" >
-        <p>
+        <p class="infos">
             Contenu du commentaire :
             <textarea type="text" name="adr" value="" size="250" id="discussion"></textarea>
         </p>
        
-        <p>
+        <p class="infos">
             <input type="hidden" name="id_discussion" value="<?php echo $_GET['id_discussion'];?>" >
         </p>
 
         <p>
-            <input type="submit" value="Envoyer" id="boutonnouveau">
+            <input type="submit" value="Envoyer" id="bouton_env">
         </p>
     </form></br>
 

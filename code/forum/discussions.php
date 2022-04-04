@@ -26,37 +26,57 @@
 <style>
 
 table{
-    
-    width:700px;
-    
+    border-spacing: 15px 1rem;
+    padding-bottom:30px;
+    margin-left:150px;
     text-align:left ;
-    border: none
+    border: none;
+}
+
+
+#message{
+    width:900px;
+
+
 }
 
 td{
-    
+    margin:auto;
+    border: 3px #4C7DC3 groove;
     border-radius:5px;
     text-align: left;
+   
     padding : 20px;
-
+    margin-bottom:30px;
 }
 
 #pseudo{
-    color: #2e2e2e;
+    
+    background-color:#4C7DC3;
+    color: white;
     font-size: 20px;
     text-align:center;
+    width:300px;
+    font-size:25px;
     
+    
+
 }
 
 #Titrearticle{
-    text-decoration:underline;
+    
     font-size: 70px;
     margin-bottom: 10px;
-    text-align: center;
-    font-style: bold;
+    text-align:center;
+    color:#4C7DC3;
 
 }
 
+spkan{
+background:#4C7DC3;
+
+padding:0 40px;
+}
 </style>
 
 
@@ -66,7 +86,7 @@ td{
 <body>
     
 
-<p id="Titrearticle">
+<p id="Titrearticle"><span>
 
 
 
@@ -74,6 +94,7 @@ td{
 $mat1 =  $rep1 -> fetch();
 echo $mat1['titre_discussion'];
 ?>
+</span>
 </p>
 
 
@@ -81,19 +102,27 @@ echo $mat1['titre_discussion'];
 
   <table>
   <?php
+    $i=1;
     while( $mat =  $rep -> fetch()){
     
     
 
+
+      
     echo "<tr><td id="."pseudo".">"."<img class='pp' src='../".$mat['url_pp']."' width='150' height='150'>"." ".$mat['pseudo']."</td>";
 
-    echo "<td>".$mat['message'].'</td></tr>';
+    echo "<td><div id="."message".">".$mat['message'].'</div></td></tr>';
+    
+        
     }
     echo "</table></br>";?>
  </div>
     <?php
-    echo "Pour ajouter un commentaire vous pouvez le faire  <a href ="."creation_commentaire.php?id_discussion=".$_GET['id_discussion']."> ici </a>"; 
     
+    if(isset($_SESSION['utilisateur']))
+    { 
+    echo "Pour ajouter un commentaire vous pouvez le faire  <a href ="."creation_commentaire.php?id_discussion=".$_GET['id_discussion']."> ici </a>"; 
+    }
     $rep -> closeCursor();
     ?>
 

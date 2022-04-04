@@ -44,6 +44,71 @@ bocrder:1px red dotted;
     background-repeat: no-repeat;
     box-sizing: border-box;
 }       
+
+
+
+::before, ::after{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+
+}    
+
+.tableau-style{
+    width:700px;
+    border-collapse: collapse;
+    box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+    cursor: pointer;
+    margin: 0px auto;
+    border: 2px solid #1d3557;
+    border-spacing: 15px;
+    
+}
+
+thead tr {
+
+    
+    background-color: #4C7DC3;
+    border: 5px solid #4C7DC3;
+    
+    text-align: left;
+}
+
+
+th, td {
+    padding: 15px 20px;
+    text-align: center;
+    color:white;
+}
+td{
+    color:#4C7DC3;
+}
+
+tbody tr, td, th {
+    font-family: tahoma;    
+    
+    border: 1px solid #4C7DC3;
+}
+tbody tr:nth-child(even){
+    background-color: #E3E9F7;
+}
+
+@media screen and (max-width: 550px) {
+  body {
+    
+    align-items: flex-start;
+  }
+  .table-style  {
+    width: 100%;
+    margin: 0px;
+    font-size: 10px;
+  }
+  th, td {
+    padding: 10px 7px;
+    
+}
+
+}
         </style>
     </head>
 
@@ -138,14 +203,16 @@ bocrder:1px red dotted;
 
 
 <div class= "tableau" >
-<table >
+<table class="tableau-style">
     
-    
-        <tr>
+        <thead>
+            <tr>
             <th> Top 3 animes</th>
             <th> Notes </th>
             <th> Titre </th>
-        </tr>
+            </tr>
+        </thead>
+        <tbody>
         <tr>
         
         
@@ -170,19 +237,22 @@ bocrder:1px red dotted;
             ?>
         
         </tr>
+        <tbody>
       
     
 </table>
 </div>
 
 <div class= "tableau">
-<table>
+<table class="tableau-style">
     
-    <tbody>
+        <thead>
         <tr>
             <th>FORUM : discussions récentes</th>
         </tr>
-        
+        </thead>
+
+       <tbody> 
        <tr>
         <?php
         

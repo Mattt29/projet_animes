@@ -13,31 +13,75 @@
      
 	</head>
 
+<style>
+
+
+p{
+    background-color:#4C7DC3;
+    height:100px;
+    text-align:center;
+    margin-left:400px;
+    margin-right:400px;
+    font-family: tahoma; 
+    color: white;
+}
+form{
+    
+    color:#4C7DC3;
+}
+#bouton_env{
+    width: 200px;
+    height: 40px;
+    margin-right:40px;
+	position:relative;
+    float:right; 
+	font-family: tahoma;
+    border: white 2px solid;
+    border-radius: 2px;
+    color:white;
+	background-color:#4C7DC3;
+    font-size:20px;
+	
+}
+#pres{ 
+    font-size:40px ;
+    padding-bottom:20px;
+}
+
+
+.infos{
+    
+    font-size:15px;
+
+}
+</style>
+
+
 <body>
 
 
 
 
-<p>
-    Bonjour, voici les informations nécéssaires pour créer une discussion : <br>
+<p id="pres">
+    Bonjour, voici les informations nécessaires pour créer une discussion : <br>
 </p>
     
     <form action="valider_discussion.php" method="post" autocomplete="off" >
-        <p>
+        <p class="info">
             Titre de la discussion : 
             <input type="text" name="titre" value=""/>
         </p>
-        <p>
-            date de la discussion : 
+        <p class="info">
+            Date de la discussion : 
             <input type="date" name="date" value=""/>
         </p>
-        <p>
-            contenu de l'article :
+        <p class="info">
+            Contenu de l'article :
             <textarea type="text" name="adr" value="" size="250" id="discussion"></textarea>
         </p>
     
         <p>
-            <input type="submit" value="Envoyer" id="boutonnouveau">
+            <input type="submit" value="Envoyer" id="bouton_env">
         </p>
     
     </form><br>
