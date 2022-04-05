@@ -17,6 +17,7 @@
 
 
 p{
+    padding-left:50px;
     background-color:#4C7DC3;
     height:100px;
     text-align:center;
@@ -44,14 +45,15 @@ form{
 	
 }
 #pres{ 
-    font-size:40px ;
+    padding-top:20px;
+    font-size:30px ;
     padding-bottom:20px;
 }
 
 
-.infos{
+.info{
     
-    font-size:15px;
+    font-size:25px;
 
 }
 </style>

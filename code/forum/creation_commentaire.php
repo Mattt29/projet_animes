@@ -45,7 +45,8 @@ form{
 	
 }
 #pres{ 
-    font-size:40px ;
+    padding-top:20px;
+    font-size:30px ;
     padding-bottom:20px;
 }
 
@@ -63,7 +64,7 @@ form{
 
 
 <p id="pres">
-    Bonjour, voici les informations nécéssaires pour créer un commentaire : </br>
+    Bonjour, voici les informations nécessaires pour créer un commentaire : </br>
 </p>
 
 <p class="infos">
@@ -93,7 +94,7 @@ form{
         </p>
     </form></br>
 
-  >
+  
 
 <div class="bandeau"> 
 <object data="../bandeau.php" width="100%" height="100%">
