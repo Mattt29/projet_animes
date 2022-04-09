@@ -60,7 +60,7 @@ bocrder:1px red dotted;
     box-shadow: 0 5px 50px rgba(0,0,0,0.15);
     cursor: pointer;
     margin: 0px auto;
-    border: 2px solid #1d3557;
+    border: 1px solid #1d3557;
     border-spacing: 15px;
     
 }
@@ -69,7 +69,7 @@ thead tr {
 
     
     background-color: #4C7DC3;
-    border: 5px solid #4C7DC3;
+    border: 2px solid #4C7DC3;
     
     text-align: left;
 }

@@ -69,7 +69,9 @@ form{
 
 <p class="infos">
             Titre de la discussion : 
-            <?php $_GET['id_discussion'];
+            <?php 
+            #on récupere le titre grace à une requête sql
+            $_GET['id_discussion'];
 
             $popo =$_GET['id_discussion'] ;
             $rep = $bdd -> query("select * from discussion where discussion.id_discussion='$popo'");
@@ -79,6 +81,7 @@ form{
             ?>
 </p>
 
+    <!-- formulaire permettant de récuperer un nouveau commentaire -->
     <form action="valider_commentaire.php" method="post" autocomplete="off" >
         <p class="infos">
             Contenu du commentaire :

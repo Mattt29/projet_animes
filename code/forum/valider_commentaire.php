@@ -21,7 +21,7 @@ session_start();
 <?php 
         include ("../bd.php");
         function enregistrercom($message,$id_discussion,$id_utilisateur){
-                
+            #fonction permettant d'ajouter le commentaire dans la base de donnée
             $bdd1=getBD();
             $totol = 'INSERT INTO `commentaires`(`message`, `id_discussion`, `id_utilisateur`) VALUES ("'.$message.'","'.$id_discussion.'","'.$id_utilisateur.'")';
             

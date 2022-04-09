@@ -17,7 +17,6 @@
 <body>
 <style>
 
-
 ::before, ::after{
     box-sizing:border-box;
     margin:0;
@@ -31,7 +30,7 @@
     box-shadow: 0 5px 50px rgba(0,0,0,0.15);
     cursor: pointer;
     margin: 0px auto;
-    border: 2px solid #1d3557;
+    border: 1px solid #1d3557;
     border-spacing: 15px;
     
 }
@@ -40,20 +39,21 @@ thead tr {
 
     
     background-color: #4C7DC3;
-    border: 5px solid #4C7DC3;
+    border: 2px solid #4C7DC3;
     
     text-align: left;
 }
+
 
 th, td {
     padding: 15px 20px;
     text-align: center;
     color:white;
-    
 }
 td{
     color:#4C7DC3;
 }
+
 tbody tr, td, th {
     font-family: tahoma;    
     
@@ -78,25 +78,6 @@ tbody tr:nth-child(even){
     
 }
 
-}
-/*
-table{
-    border:none;
-    border-spacing: 15px;
-
-}
-
-#titre{
-    background-color:#E9F6FE;
-    
-}
-th{
-    border-radius:20px;
-}
-td{
-    
-    border-radius:20px;
-}*/
 </style>
 
 <table class="tableau-style">
@@ -113,7 +94,7 @@ td{
        
         <?php
         
-        
+        #on affiche toutes les discussions qui ont été commencées
         $rep = $bdd->query('select * from discussion');
 
 

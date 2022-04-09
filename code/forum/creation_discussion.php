@@ -67,7 +67,7 @@ form{
 <p id="pres">
     Bonjour, voici les informations nécessaires pour créer une discussion : <br>
 </p>
-    
+    <!-- formulaire permettant de créer une discussion, ainsi que le premier commentaire de cette dernière-->
     <form action="valider_discussion.php" method="post" autocomplete="off" >
         <p class="info">
             Titre de la discussion : 

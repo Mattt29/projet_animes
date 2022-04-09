@@ -35,7 +35,21 @@ table{
 
 
 #message{
+    
     width:900px;
+
+
+}
+#intro{
+    background-color:#FC5A3A;
+    font-size:13px;
+    
+}
+#message1{
+    font-size:25px;
+    width:900px;
+    coldor :red;
+    
 
 
 }
@@ -72,11 +86,7 @@ td{
 
 }
 
-spkan{
-background:#4C7DC3;
 
-padding:0 40px;
-}
 </style>
 
 
@@ -90,7 +100,7 @@ padding:0 40px;
 
 
 
-<?php      
+<?php #on recupère le titre de la discussion
 $mat1 =  $rep1 -> fetch();
 echo $mat1['titre_discussion'];
 ?>
@@ -102,22 +112,32 @@ echo $mat1['titre_discussion'];
 
   <table>
   <?php
+    #on affiche chaque message dans l'ordre chornologique avec la personne qui correspond à coté
+    
+
     $i=1;
     while( $mat =  $rep -> fetch()){
     
     
 
-
-      
+    if($i==1){
+        $i+=1;
     echo "<tr><td id="."pseudo".">"."<img class='pp' src='../".$mat['url_pp']."' width='150' height='150'>"." ".$mat['pseudo']."</td>";
 
+    echo "<td id="."intro".">"."<div id="."message1".">".$mat['message'].'</div></td></tr>';
+    }
+    else{
+        echo "<tr><td id="."pseudo".">"."<img class='pp' src='../".$mat['url_pp']."' width='150' height='150'>"." ".$mat['pseudo']."</td>";
+
     echo "<td><div id="."message".">".$mat['message'].'</div></td></tr>';
+     }
     
         
     }
     echo "</table></br>";?>
  </div>
     <?php
+    #on redirige vers creation_commentaire si on veut rajouter un commentaire et prendre part a la discussion
     
     if(isset($_SESSION['utilisateur']))
     { 

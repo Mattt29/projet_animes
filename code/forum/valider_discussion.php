@@ -21,7 +21,7 @@
         include ("../bd.php");
         session_start();
             function enregistrerdiscu($titre_discussion,$date_discusison,$id_utilisateur){
-                
+                #fonction permetant d'ajouter une discussion a la base de donnée
                 $bdd=getBD();
                 $toto = 'INSERT INTO `discussion`(`titre_discussion`, `date_discussion`, `id_utilisateur`) VALUES ("'.$titre_discussion.'","'.$date_discusison.'","'.$id_utilisateur.'")';
                 
@@ -33,7 +33,7 @@
 
 
             function enregistrercom($message,$id_discussion,$id_utilisateur){
-                
+                #fonction permetant d'ajouter un commentaire a la base de donnée
                 $bdd1=getBD();
                 $totol = 'INSERT INTO `commentaires`(`message`, `id_discussion`, `id_utilisateur`) VALUES ("'.$message.'","'.$id_discussion.'","'.$id_utilisateur.'")';
                 
