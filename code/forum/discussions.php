@@ -31,6 +31,7 @@ table{
     margin-left:150px;
     text-align:left ;
     border: none;
+         box-shadow:-8px -8px 20px 0px rgba(0,0,0,0.5);
 }
 
 
@@ -41,14 +42,14 @@ table{
 
 }
 #intro{
-    background-color:#FC5A3A;
+    background-color:#4C7DC3;
     font-size:13px;
     
 }
 #message1{
     font-size:25px;
     width:900px;
-    coldor :red;
+    color :white;
     
 
 
@@ -108,11 +109,11 @@ echo $mat1['titre_discussion'];
 </p>
 
 
-<div id=tablefor>
+<div>
 
   <table>
   <?php
-    #on affiche chaque message dans l'ordre chornologique avec la personne qui correspond à coté
+    #on affiche chaque message dans l'ordre chronologique avec la personne qui correspond à coté
     
 
     $i=1;

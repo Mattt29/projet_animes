@@ -18,8 +18,11 @@ include('../bd.php');
 if(empty($test_anime) || $test_anime==""){
 	$ajout=$bdd->query('INSERT INTO liste_a_voir (id_anime,id_utilisateur) VALUES ('.$id_anime.','.$id_utilisateur.')');
 	$ajout -> closeCursor();
-echo "Ajout de l'anime réussi ! Retour à la fiche anime";
-echo '<meta http-equiv="Refresh" content="3; url=../fiche_anime.php?id_anime='.$id_anime.'"/>';
+	
+
+														
+//echo "Ajout de l'anime réussi ! Retour à la fiche anime";
+echo '<meta http-equiv="Refresh" content="0; url=../fiche_anime.php?id_anime='.$id_anime.'"/>';
 
 }
 

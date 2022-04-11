@@ -24,7 +24,15 @@ session_start();
             	top: 25%;
 					text-align: center;
             }
+            a:hover{
+            color:white;
+            bordder-color:orange;
+            background-color: #1d3557;}
+
+            
         </style>
+        
+        
     </head>
 
 
@@ -54,11 +62,14 @@ session_start();
 				echo '<strong style="font-size: 30px;"> Adresse mail : </strong>'.$ligne['mail'].'<br>';	
 				
 				$profil->closeCursor();
-				?>
-        <p> <a href="../amis/liste_amis.php"> Liste d'amis </a> </p>
-        <p> <a href="../amis/demandes_amis.php"> Demandes d'amis </a> </p>
-        <p> <a href="pp.php"> Changer de pp </a></p>
+		//border-color:#1d3557;color:#1d3557;		?>
+				</div>
+				<div id="bouton_profil">
+        <p> <a class='b_profil' style='text-decoration: none;' href="../amis/liste_amis.php"> Liste d'amis </a> </p>
+        <p> <a  class='b_profil' style='text-decoration: none;'  href="../amis/demandes_amis.php"> Demandes d'amis </a> </p>
+        <p> <a  class='b_profil' style='text-decoration: none;' href="pp.php"> Changer de pp </a></p> 
 <?php } ?>
+
 
 </div>
 <div class="bandeau"> 

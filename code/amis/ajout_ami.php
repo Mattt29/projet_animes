@@ -34,15 +34,15 @@ if(isset($_SESSION['utilisateur'])) {
 	$bdd =getBD();
 	$rep = $bdd->query('INSERT INTO etre_ami (id_utilisateur, id_utilisateur1, date_ajout) VALUES ('.$id.','.$id_ami.', NOW())');
 	
-	echo "Ajout réussi";
+	
 #echo '<meta http-equiv="Refresh" content="5; url=profil.php"/>';
 ?>
 
 <?php
 }
-if(isset($recherche)) { echo '<meta http-equiv="Refresh" content="2; url=../recherche.php?recherche='.$recherche.'"/>'; }
+if(isset($recherche)) { echo '<meta http-equiv="Refresh" content="0; url=../recherche.php?recherche='.$recherche.'"/>'; }
 else {
-	echo '<meta http-equiv="Refresh" content="2; url=demandes_amis.php"/>';
+	echo '<meta http-equiv="Refresh" content="0; url=demandes_amis.php"/>';
 }
 ?>
 <div class="bandeau"> 

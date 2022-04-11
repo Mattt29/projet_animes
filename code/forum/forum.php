@@ -17,66 +17,6 @@
 <body>
 <style>
 
-::before, ::after{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-
-}    
-
-.tableau-style{
-    width:700px;
-    border-collapse: collapse;
-    box-shadow: 0 5px 50px rgba(0,0,0,0.15);
-    cursor: pointer;
-    margin: 0px auto;
-    border: 1px solid #1d3557;
-    border-spacing: 15px;
-    
-}
-
-thead tr {
-
-    
-    background-color: #4C7DC3;
-    border: 2px solid #4C7DC3;
-    
-    text-align: left;
-}
-
-
-th, td {
-    padding: 15px 20px;
-    text-align: center;
-    color:white;
-}
-td{
-    color:#4C7DC3;
-}
-
-tbody tr, td, th {
-    font-family: tahoma;    
-    
-    border: 1px solid #4C7DC3;
-}
-tbody tr:nth-child(even){
-    background-color: #E3E9F7;
-}
-
-@media screen and (max-width: 550px) {
-  body {
-    
-    align-items: flex-start;
-  }
-  .table-style  {
-    width: 100%;
-    margin: 0px;
-    font-size: 10px;
-  }
-  th, td {
-    padding: 10px 7px;
-    
-}
 
 </style>
 
@@ -84,7 +24,7 @@ tbody tr:nth-child(even){
     
     <thead> 
         <tr id="titre">
-            <th>FORUM : discussions récentes</th>
+            <th>FORUM : toutes les discussions </th>
         </tr>
     </thead>    
 
@@ -102,26 +42,26 @@ tbody tr:nth-child(even){
         
         while( $ligne = $rep -> fetch() ){ 
         
-        echo "<tr><td> <a href ="."discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td>";
+        echo "<tr><td> <a href ="."discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td></tr>";
         } 
-        echo"</tr>";
+      
         $rep -> closeCursor();
         ?> 
         
         
-        <tr>
-
-    <td>
+        
     <?php
     if(isset($_SESSION['utilisateur']))
     { ?>
+    <tr>
+
+    <td>
 
     vous pouvez créer une discussion <a href="creation_discussion.php">  ici </a>
     </td>
     </tr>
     <?php } ?>
-</td>
-</tr>
+
     </tbody>
 </table>
 <div class="bandeau"> 

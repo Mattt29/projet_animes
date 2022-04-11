@@ -90,6 +90,12 @@ li a:hover {
 	font-size: 14px;
     font-weight: 700;
     line-height: 100%;
+    cursor: pointer;
+    
+}
+#bouton_valide:hover{
+color:orange;
+border-color: orange;
 }
 
 .titre { padding-left: 10px;
@@ -124,6 +130,13 @@ padding-left: 100px;
     color: white;
 
 }
+
+#Se_connecter:hover{
+color:orange;
+border-color: orange;
+}
+
+
 #fondecran {
 		/* Fixe l'image en haut à gauche de la page */
 		position: fixed; 
@@ -152,7 +165,7 @@ right: 0;}
 <body>
 <div class="titre">
 <h2>
-<img src="img/list_anim_blanc.png" width="320px" height="80px" alt=""/>
+<img src="img/list_anim_blanc_nul.png" width="320px" height="80px" alt=""/>
 </h2>
 </div>
 <div class="profil" >
@@ -212,6 +225,9 @@ echo  '<br />';$pp=$bdd->query('SELECT url_pp FROM utilisateur, photo_de_profil 
 			
 			<li>
 			<a href="amis/demandes_amis.php" target="_parent">Demandes d'amis</a>
+			</li>
+			<li>
+			<a href="reco.php" target="_parent">Recommandation</a>
 			</li>
  <?php } ?>
 

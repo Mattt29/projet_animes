@@ -14,7 +14,19 @@ session_start();
 		<style>
 				a{
 					margin:10px;
+					bordfer:1px blue dotted;
+					width: 225px;
+					height: 300px;
+					position: relative;
+					display: inline-block;
 				}
+				.note_anime{
+display: none;				
+				}
+				.image1:hover div{
+		display:block;
+		}
+				
 		</style>		
 		
 		
@@ -86,13 +98,15 @@ $id_utilisateur=$_SESSION['utilisateur']['id_utilisateur'];
 $avoir = $bdd->query('SELECT liste_a_voir.id_anime, image_url_anime from liste_a_voir, anime where liste_a_voir.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur);
 #echo 'SELECT liste_a_voir.id_anime, image_url_anime from liste_a_voir, anime where liste_a_voir.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur;
 
-?> <div class="liste">
+?> 
 	Liste animes à voir : <br />
+<div class="liste">
+
 	<?php
 	$non_vide1=FALSE;
 while($ligne1 =$avoir->fetch()) {	
 
-echo "<a href=../fiche_anime.php?id_anime=".$ligne1['id_anime']."><img src='".$ligne1['image_url_anime']."'></a>";
+echo "<a href=../fiche_anime.php?id_anime=".$ligne1['id_anime']."><img style='box-shadow:-5px -5px 5px 0 rgba(0,0,0,0.5);' src='".$ligne1['image_url_anime']."'></a>";
  
 
  #$id_anime_a_voir=$ligne1['id.anime']; 
@@ -109,15 +123,21 @@ $avoir-> closeCursor();
 
 
 
-$avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime from liste_vus, anime where liste_vus.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur);
+$avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime, note_utilisateur from liste_vus, anime where liste_vus.id_anime=anime.id_anime and id_utilisateur='.$id_utilisateur);
 
-?> </div><br><br> <div class="liste">
-	Liste animes vus : <br /> 
+?> </div><br> 
+Liste animes vus : <br /> 
+<div class="liste">
+	
 	<?php
 	
 $non_vide2=FALSE;
 while($ligne2 =$avu->fetch()) {	
-echo "<a href=../fiche_anime.php?id_anime=".$ligne2['id_anime']."><img src='".$ligne2['image_url_anime']."'></a>";
+$note=$ligne2['note_utilisateur'];
+echo "<a class='image1' style='position:relative;width=250px;' href=../fiche_anime.php?id_anime=".$ligne2['id_anime']."><img style='box-shadow:-5px -5px 5px 0 rgba(0,0,0,0.5);' src='".$ligne2['image_url_anime']."'><div class='note_anime' style='left:60px;top:80px;' >".$note."</div></a>";
+if($note!=NULL) {
+echo "<div class='note_anime' style='left:20px;top:50px;border:2px yellow solid;' >".$note."</div>";
+	}
 #$id_anime_vus=$ligne2['id.anime']; 
 #$image_anime_vus=$ligne2['image_url_anime']; 
 $non_vide2=TRUE;

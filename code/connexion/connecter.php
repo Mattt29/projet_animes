@@ -13,8 +13,8 @@ $mail=$_POST['mail'];
 
 $mdp=$_POST['mdp'];
 
-echo $mail.'<br />';
-echo $mdp.'<br />';
+
+
 
 include('../bd.php');
 	$bdd =getBD();
@@ -35,17 +35,17 @@ if($mail=="" || $mdp=="" || !isset($id_utilisateur) || $id_utilisateur=="" || !i
 	} 
 	
 else {
-echo 'Connexion réussie, redirection'.'<br />';
+
 
 session_start();
 $_SESSION['utilisateur']=array();
 $_SESSION['utilisateur']['id_utilisateur']=$id_utilisateur;
 $_SESSION['utilisateur']['pseudo']=$pseudo;
-#$_SESSION['utilisateur']['id_photo_de_profil']=$id_pp;
-echo 'utilisateur  :';
-echo $_SESSION['utilisateur']['pseudo'];
 
-echo '<meta http-equiv="Refresh" content="4; 
+
+
+
+echo '<meta http-equiv="Refresh" content="0; 
 	url=../index.php"/>' ;	
 }	
 

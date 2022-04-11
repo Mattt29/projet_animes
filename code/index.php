@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -55,7 +59,7 @@ bocrder:1px red dotted;
 }    
 
 .tableau-style{
-    width:700px;
+    width:600px;
     border-collapse: collapse;
     box-shadow: 0 5px 50px rgba(0,0,0,0.15);
     cursor: pointer;
@@ -70,6 +74,7 @@ thead tr {
     
     background-color: #4C7DC3;
     border: 2px solid #4C7DC3;
+
     
     text-align: left;
 }
@@ -89,8 +94,9 @@ tbody tr, td, th {
     
     border: 1px solid #4C7DC3;
 }
-tbody tr:nth-child(even){
+tbody tr:nth-child(odd){
     background-color: #E3E9F7;
+
 }
 
 @media screen and (max-width: 550px) {
@@ -109,6 +115,18 @@ tbody tr:nth-child(even){
 }
 
 }
+
+a{
+	text-decoration: none;
+    coflor:#4C7DC3;
+    color:#1d3557;
+    font-weight: 700;
+}
+
+a:hover{
+	text-decoration: underline;
+	
+}
         </style>
     </head>
 
@@ -122,83 +140,7 @@ tbody tr:nth-child(even){
   </div>
   </div>
 </div>
-  <!--
-<div class="acceuilhaut">
-<div id="profila">
  
-
-
-
-
-<div id = "connexion" >
-<?php
-    session_start();
-    if(!isset($_SESSION['utilisateur']))
-    { ?>
-
-    <p id="Se_connecter"> <a href="connexion/connexion.php"> Se connecter </a> </p>
-
-    <?php }
-
-    else {
-    echo  '<br />';
-
- 
- 	 		$pp=$bdd->query('SELECT url_pp FROM utilisateur, photo_de_profil WHERE id_utilisateur='.$_SESSION['utilisateur']['id_utilisateur'].' and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil');
- 			$lignepp=$pp->fetch();
-   ?> <a href="profil/profil.php" ><?php echo "<img class='pp' src='".$lignepp['url_pp']."' width='150' height='200'";?></a>    
-	<?php $pp->closeCursor();
-	
-	    echo "Bonjour ";
-    echo $_SESSION['utilisateur']['pseudo'];  ?>
-	
-	<p id="Se_deconnecter"> <a href="connexion/deconnexion.php"> Se déconnecter </a> </p>
-	
-<div id="liste_anime">
-<?php 
- echo "<a href =liste_animes/liste_animes.php> Liste animes</a>";
-
-?>
-
-</div>	
-	
-	
-    <?php }?>
-    
-      
-
-</div>
-</div>
-
-
-
-
-<?php
-
-  
- $rep = $bdd->query('select * from anime');
- 
- if(isset($_GET['titre_anime']) AND !empty($_GET['titre_anime'])) {
-    $q = htmlspecialchars($_GET['titre_anime']);
-    $articles = $bdd->query('SELECT titre_anime FROM anime WHERE titre_anime LIKE "%'.$q.'%" ORDER BY id_anime DESC');
-    if($articles->rowCount() == 0) {
-       $articles = $bdd->query('SELECT titre_anime FROM anime WHERE CONCAT(titre_anime, contexte_anime) LIKE "%'.$q.'%" ORDER BY id_anime DESC');
-    }
- }
-    $rep -> closeCursor();           
-
-    ?>
-
-
-
-<form method="GET" action="recherche.php" autocomplete="on">
-    
-    <input type="search" name="recherche"  placeholder="Recherche anime.." id="barre_recherche" />
-    <input type="submit" value="Valider" id="bouton_validé" />
-</form>
-
-
-</div> -->
 
 
 
@@ -213,7 +155,7 @@ tbody tr:nth-child(even){
             </tr>
         </thead>
         <tbody>
-        <tr>
+        
         
         
         <?php
@@ -227,7 +169,7 @@ tbody tr:nth-child(even){
         while( $i<3 && $ligne = $rep -> fetch() ){ 
         echo "<tr> <td> <img src='".$ligne['image_url_anime']."'</td>
         <td>".$ligne['note_generale_anime']."</td><td>"
-        ."<a href ="."fiche_anime.php?id_anime=".$ligne['id_anime'].">".$ligne['titre_anime']."</a>"."</td>";
+        ."<a href ="."fiche_anime.php?id_anime=".$ligne['id_anime'].">".$ligne['titre_anime']."</a>"."</td></tr>";
         $i=$i+1;
         }   
         
@@ -236,7 +178,7 @@ tbody tr:nth-child(even){
 
             ?>
         
-        </tr>
+        
         <tbody>
       
     
@@ -248,43 +190,43 @@ tbody tr:nth-child(even){
     
         <thead>
         <tr>
-            <th>FORUM : discussions récentes</th>
+            <th><a style="color:white;font-family: tahoma;" href="forum/forum.php">FORUM : discussions récentes</a></th>
         </tr>
         </thead>
 
        <tbody> 
-       <tr>
+       
         <?php
         
         
-        $rep = $bdd->query('select * from discussion');
+        $rep = $bdd->query('select * from discussion ORDER BY id_discussion DESC');
 
 
         $i1=0;
         
         while( $i1<4     && $ligne = $rep -> fetch() ){ 
             
-        echo "<tr><td> <a href ="."forum/discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td>";
+        echo "<tr><td> <a href ="."forum/discussions.php?id_discussion=".$ligne['id_discussion'].">".$ligne['titre_discussion']."</a></td></tr>";
         $i1=$i1+1;
         } 
 
         $rep -> closeCursor();
         ?> 
         
-        </tr>
-         <tr>
+        
+         
+        <?php
+        if(isset($_SESSION['utilisateur'])){
+        ?> <tr>
 
         <td>
-        <?php
-        if(isset($_SESSION['utilisateur']))
-        { ?>
-        
-        vous pouvez créer une discussion <a href="forum/creation_discussion.php">  ici </a>
+        <?php 
+        echo 'Vous pouvez créer une discussion <a href="forum/creation_discussion.php">ici</a>'
+        ?>
          </td>
         </tr>
         <?php } ?>
-        </td>
-        </tr>
+        
       
         
     </tbody>

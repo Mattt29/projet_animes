@@ -15,15 +15,28 @@ session_start();
         $bdd = getBD();
         ?>
 </head>
-
+<style>
+	  a:hover{
+            colfor:white;
+            bordder-color:orange;
+            backgrfound-color: #1d3557;}
+</style>
 <body>
 
 <?php 
 
 		if(isset($_SESSION['utilisateur'])) {
 		$id=$_SESSION['utilisateur']['id_utilisateur'];
-		?><table>
-<th colspan="4"> Liste d'amis </th>	
+		?><table class="tableau-style" >
+    
+    <thead > 
+        <tr id="titre">
+            <th colspan='4' style="font-size:20px;">Liste d'amis</th>
+        </tr>
+    </thead>    
+
+    
+		<tbody>
 		<?php
 		$demande = $bdd->query('SELECT * from etre_ami where id_utilisateur='.$id); 
 				 									
@@ -49,7 +62,7 @@ session_start();
 </p>
 
 <p>
-<input type="submit" value="Supprimer des amis">
+<input class="bouton_amis" type="submit" value="Supprimer">
 
 </p>
 </form>
@@ -60,7 +73,7 @@ session_start();
  												  }
  				  $demande -> closeCursor();
 
-?> </table> <?php
+?> </tbody></table> <?php
 														}
 ?>
 <div class="bandeau"> 

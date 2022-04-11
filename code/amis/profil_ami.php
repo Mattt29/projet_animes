@@ -14,6 +14,23 @@ session_start();
         include('../bd.php') ;
         $bdd = getBD();
         ?>
+<style>
+a{
+					margin:10px;
+					bordfer:1px blue dotted;
+					width: 225px;
+					height: 300px;
+					position: relative;
+					display: inline-block;
+				}
+				.note_anime{
+display: none;				
+				}
+				.image1:hover div{
+		display:block;
+		}
+</style>        
+        
 </head>
 
 <body>
@@ -35,6 +52,8 @@ session_start();
 		
 		?>
 
+
+
 <div id="profil_ami">
 
  <?php  $utilisateur = $bdd->query('SELECT id_utilisateur, pseudo, url_pp  FROM utilisateur, photo_de_profil WHERE id_utilisateur='.$id_ami.' and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil');
@@ -43,20 +62,24 @@ session_start();
  		echo "<img class='pp' src='../".$ligne2['url_pp']."' width='150' height='200' ><br>";
  		echo $ligne2['pseudo'];
 		$utilisateur->closeCursor();?>
-</div>		
-	
-<div id="liste_ami">
-	
+</div>
+
+
+
 <?php $avoir = $bdd->query('SELECT liste_a_voir.id_anime, image_url_anime from liste_a_voir, anime where liste_a_voir.id_anime=anime.id_anime and id_utilisateur='.$id_ami);
+?>
+Liste animes à voir : <br />
+<div class="liste">
 
-
-?> <div class="liste">
-	Liste animes à voir : <br />
 	<?php
 	$non_vide1=FALSE;
-while($ligne3 =$avoir->fetch()) {	
+while($ligne1 =$avoir->fetch()) {	
 
-echo "<a href=../fiche_anime.php?id_anime=".$ligne3['id_anime']."><img src='".$ligne3['image_url_anime']."'></a>";
+echo "<a href=../fiche_anime.php?id_anime=".$ligne1['id_anime']."><img style='box-shadow:-5px -5px 5px 0 rgba(0,0,0,0.5);' src='".$ligne1['image_url_anime']."'></a>";
+ 
+
+ #$id_anime_a_voir=$ligne1['id.anime']; 
+ #$image_anime_a_voir=$ligne1['image_url_anime']; 
  $non_vide1=TRUE;
 }
 
@@ -67,16 +90,25 @@ if(empty($non_vide1)){
 $avoir-> closeCursor();
 
 
-$avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime from liste_vus, anime where liste_vus.id_anime=anime.id_anime and id_utilisateur='.$id_ami);
 
-?> </div> <div class="liste">
-	Liste animes vus : <br /> 
+
+$avu = $bdd->query('SELECT liste_vus.id_anime, image_url_anime,note_utilisateur from liste_vus, anime where liste_vus.id_anime=anime.id_anime and id_utilisateur='.$id_ami);
+
+?> </div><br> 
+Liste animes vus : <br /> 
+<div class="liste">
+	
 	<?php
 	
 $non_vide2=FALSE;
-while($ligne4 =$avu->fetch()) {	
-echo "<a href=../fiche_anime.php?id_anime=".$ligne4['id_anime']."><img src='".$ligne4['image_url_anime']."'></a>";
-
+while($ligne2 =$avu->fetch()) {	
+$note=$ligne2['note_utilisateur'];
+echo "<a class='image1' style='position:relative;width=250px;' href=../fiche_anime.php?id_anime=".$ligne2['id_anime']."><img style='box-shadow:-5px -5px 5px 0 rgba(0,0,0,0.5);' src='".$ligne2['image_url_anime']."'><div class='note_anime' style='left:60px;top:80px;' >".$note."</div></a>";
+if($note!=NULL) {
+echo "<div class='note_anime' style='left:20px;top:50px;border:2px yellow solid;' >".$note."</div>";
+	}
+#$id_anime_vus=$ligne2['id.anime']; 
+#$image_anime_vus=$ligne2['image_url_anime']; 
 $non_vide2=TRUE;
 }
 
@@ -85,12 +117,13 @@ if(empty($non_vide2)){
 
  }
 
+#echo 'utilisateur  :';
+#print_r($_SESSION['liste_a_voir']);
 
 $avu-> closeCursor();
 
-?> </div>
 
-</div>
+?> </div>
  
 <?php 						}	else {
 						echo "Vous n'êtes pas amis, retour index";

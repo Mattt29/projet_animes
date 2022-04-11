@@ -33,9 +33,8 @@ echo $pass_hash;
 	/* $rep-> closeCursor(); */
 	$ad = enregistrer($_POST['n'].'"','"'.$_POST['p'].'"','"'.$_POST['pseudo'].'"','"'.$_POST['mail2'].
 	'"','"'.$pass_hash.'"' );
-	echo 'yo';
-	echo $ad;
- 	echo '<meta http-equiv="Refresh" content="5; url=../index.php"/>';
+
+ 	echo '<meta http-equiv="Refresh" content="0; url=../index.php"/>';
 }
 ?>
 

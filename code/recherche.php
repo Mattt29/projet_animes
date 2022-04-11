@@ -38,10 +38,10 @@ margin:0 auto;
 margin-left: 200px;
 }
 #animes, #utilisateurs, #forums{
-margin-left: auto;
-margin-right: auto;
-width: 800px;
-margin-left: 200px;
+mardgin-left: auto;
+margfin-right: auto;
+widthf: 800px;
+marginf-left: 200px;
 }
         </style>
       
@@ -60,6 +60,11 @@ margin-left: 200px;
 
 # $rep = $bdd->query('select * from anime');
 # $rep -> closeCursor(); 
+$id=300000;
+if(isset($_SESSION['utilisateur'])){
+    $id=$_SESSION['utilisateur']['id_utilisateur'];
+}
+
 
  if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
     $q = htmlspecialchars($_GET['recherche']);
@@ -77,7 +82,9 @@ margin-left: 200px;
     if($articles->rowCount() == 0) {
        $articles = $bdd->query('SELECT id_anime,titre_anime,type_anime,note_generale_anime,image_url_anime FROM anime WHERE CONCAT(titre_anime, contexte_anime) LIKE "%'.$q.'%" ORDER BY popularite_anime ASC,note_generale_anime,id_anime DESC LIMIT 10');
     }
-    ?> <table id="animes">
+    ?> 
+<div id="animes">    
+    <table class="tableau-style" style="margin-left: auto;margin-right: auto;width: 800px;margin-left: 200px;">
    
      <?php  
     while($ligne1 =$articles->fetch()) { ?>
@@ -92,18 +99,20 @@ margin-left: 200px;
        $articles -> closeCursor();   
  ?>
 	</table>
-	
+	</div>
 	
 	<!-- ### Utilisateurs ### -->
-	<table id="utilisateurs">
+	<div id="utilisateurs">
+	<table class="tableau-style" style="margin-left: auto;margin-right: auto;width: 800px;margin-left: 200px;">
 	  <?php  $utilisateurs = $bdd->query('SELECT id_utilisateur, pseudo, url_pp  FROM utilisateur, photo_de_profil WHERE pseudo LIKE "%'.$q.'%" and utilisateur.id_photo_de_profil=photo_de_profil.id_photo_de_profil ORDER BY pseudo LIMIT 10');
 	
-		while($ligne2 =$utilisateurs->fetch()) { ?>
-    
-    	<tr><td><?php echo "<img class='pp' src='".$ligne2['url_pp']."' width='150' height='200' >";?></td>
+		while($ligne2 =$utilisateurs->fetch()) { 
+if($ligne2['id_utilisateur']!=$id) {		
+		?>
+      	<tr><td><?php echo "<img class='pp' src='".$ligne2['url_pp']."' width='150' height='200' >";?></td>
  		<td><?php echo $ligne2['pseudo'];?></td>
 		<?php if(isset($_SESSION['utilisateur'])){  		
- 		    $id=$_SESSION['utilisateur']['id_utilisateur'];
+ 		
  	  $ami = $bdd->query('SELECT * from etre_ami where (id_utilisateur='.$id.' and id_utilisateur1='.$ligne2['id_utilisateur'].') OR (id_utilisateur1='.$id.' and id_utilisateur='.$ligne2['id_utilisateur'].')  '); 
 		$i=0;		
 		while($ligne3 =$ami->fetch()){
@@ -153,22 +162,23 @@ margin-left: 200px;
  		  $ami -> closeCursor(); 
     }
  	  
-    														}
+    											}			}
        $utilisateurs -> closeCursor();   
  ?>
 	
 		
 	</table>
-	
+	</div>
 	
 	<!-- ### Forum ### -->
-	<table id="forums">
+	<div id="forums">
+	<table class="tableau-style" style="margin-left: auto;margin-right: auto;width: 800px;margin-left: 200px;">
 	  <?php  $forum = $bdd->query('SELECT id_discussion, titre_discussion, pseudo, discussion.id_utilisateur FROM discussion,utilisateur WHERE CONCAT(titre_discussion, pseudo) LIKE "%'.$q.'%" and discussion.id_utilisateur=utilisateur.id_utilisateur ORDER BY titre_discussion ASC, id_discussion DESC LIMIT 10');
 		#echo 
 		while($ligne4 =$forum->fetch()) { ?>  
     	<tr><td><?php echo $ligne4['titre_discussion'];?></td>
  		<td><?php echo $ligne4['pseudo'];?></td>
- 		<td><?php echo '<a href ="forum/forum.php?id_discussion='.$ligne4['id_discussion'].'">Voir la discussion</a><br>';
+ 		<td><?php echo '<a href ="forum/discussions.php?id_discussion='.$ligne4['id_discussion'].'">Voir la discussion</a><br>';
  		$messages = $bdd->query('SELECT COUNT(message) as msg from discussion,commentaires where discussion.id_discussion=commentaires.id_discussion and discussion.id_discussion='.$ligne4['id_discussion']); 
 		$ligne5 =$messages->fetch();
 		echo $ligne5['msg'].'  messages';
@@ -183,6 +193,7 @@ margin-left: 200px;
 	
 		
 	</table>
+	</div>
 <?php  }  
 
     ?>

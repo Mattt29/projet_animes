@@ -15,15 +15,25 @@ session_start();
         $bdd = getBD();
         ?>
 </head>
+<style>
 
+
+  a:hover{
+            colfor:white;
+            bordder-color:orange;
+            bafckground-color: #1d3557;}
+</style>
 <body>
 
 <?php 
 
 		if(isset($_SESSION['utilisateur'])) {
 		$id=$_SESSION['utilisateur']['id_utilisateur'];
-		?><table>
+		?><table class="tableau-style">
+			<thead>
 <th colspan="4"> Demandes d'amis </th>	
+		</thead>
+		<tbody>
 		<?php
 		$demande = $bdd->query('SELECT * from etre_ami where id_utilisateur1='.$id); 
 				 									
@@ -44,7 +54,7 @@ session_start();
 </p>
 
 <p>
-<input type="submit" value="Accepter la demande">
+<input class='bouton_amis' style='text-decoration: none;' type="submit" value="Accepter">
 
 </p>
 </form>
@@ -57,7 +67,7 @@ session_start();
 </p>
 
 <p>
-<input type="submit" value="Rejeter la demande">
+<input class='bouton_amis' type="submit" value="Rejeter">
 
 </p>
 </form>
@@ -69,7 +79,7 @@ session_start();
  												  }
  				  $demande -> closeCursor();
 
-?> </table> <?php
+?> </tbody></table> <?php
 														}
 ?>
 

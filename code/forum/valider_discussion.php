@@ -20,10 +20,10 @@
 <?php 
         include ("../bd.php");
         session_start();
-            function enregistrerdiscu($titre_discussion,$date_discusison,$id_utilisateur){
+            function enregistrerdiscu($titre_discussion,$id_utilisateur){
                 #fonction permetant d'ajouter une discussion a la base de donnée
                 $bdd=getBD();
-                $toto = 'INSERT INTO `discussion`(`titre_discussion`, `date_discussion`, `id_utilisateur`) VALUES ("'.$titre_discussion.'","'.$date_discusison.'","'.$id_utilisateur.'")';
+                $toto = 'INSERT INTO `discussion`(`titre_discussion`, `date_discussion`, `id_utilisateur`) VALUES ("'.$titre_discussion.'",NOW(),"'.$id_utilisateur.'")';
                 
                 $bdd -> query($toto);
                 
@@ -43,12 +43,12 @@
             
             $titre= $_POST['titre'];
             $id_util=$_SESSION['utilisateur']['id_utilisateur'];
-            $date=$_POST['date'];
+            //$date=$_POST['date'];
             $texte=$_POST['adr'];
             
             
             $bdd3 = getBD();
-            enregistrerdiscu($titre,$date,$id_util);
+            enregistrerdiscu($titre,$id_util);
             
             
             $id_discu = $bdd3 -> query('select id_discussion from discussion where titre_discussion ="'.$titre.'"');
@@ -65,7 +65,7 @@ Votre discussion a bien été enregistrée, vous allez être redirigé vers le f
 </p>
 
 <?php
-echo '<meta http-equiv="refresh" content="5; url=forum.php"/>';
+echo '<meta http-equiv="refresh" content="3; url=forum.php"/>';
 ?>
 
 <div class="bandeau"> 

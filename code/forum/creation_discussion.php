@@ -73,10 +73,10 @@ form{
             Titre de la discussion : 
             <input type="text" name="titre" value=""/>
         </p>
-        <p class="info">
+       <!-- <p class="info">
             Date de la discussion : 
             <input type="date" name="date" value=""/>
-        </p>
+        </p> -->
         <p class="info">
             Contenu de l'article :
             <textarea type="text" name="adr" value="" size="250" id="discussion"></textarea>

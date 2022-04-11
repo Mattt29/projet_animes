@@ -37,7 +37,7 @@ background-cdolor:#fde2e4;
     	overflfow-y: hidden;
     	overfglow-x: hidden;
     	width: 95%;
-
+background-color: rgba(129, 163, 212,0.3);
     wifdth: 500px;
 margin-top: 290px;
 margin-left:auto;
@@ -182,6 +182,7 @@ font-weight: 100;
 	position: absolute;
 	left: 65%;
 	top: 53%;
+
 	background-image: url(../img/etoilejaune.png);
 	background-size:90px 90px;
 	background-position: center;
@@ -192,6 +193,7 @@ font-weight: 100;
 	padding-top: 70px;
 
 	text-align: center;
+	z-index: 30;
 }
 
 
@@ -246,24 +248,38 @@ position: absolute;
 	color:white;
 	text-align: center;
 	padding:8px;
+	padding-top:35px;
 	opacity: 80%;
 	border-radius:15px;
 	font-size: 30px;
+	min-height: 200px;
 }
 
+#etoiles_fiche_anime {
+padding-left: 70px;
+z-index: 2;
+width: 500px;
+height: 50px;
+}
 
 .bouton{
 font-family: tahoma;
  border: white 2px solid;
     border-radius: 2px;
     color:white;
+    coflor:#1d3557;
 	background-color:#1d3557;
+backgfround-color: rgba(129, 163, 212,0.3);
 	font-size: 14px;
     font-weight: 700;
     line-height: 100%;
 padding:5px;
 }
+.bouton:hover{
+color:orange;
+border-color: orange;
 
+}
 
 .texte_ajout{
 font-size: 20px;
@@ -319,6 +335,7 @@ float:left;
 text-align: center;
 margin-left:50px;
 margin-top:100px;
+margin-right: 50px;
 }	
 
 #liste_ami{
@@ -368,8 +385,18 @@ font-weight: bold;
 }
 
 .liste{
+	padding-top: 20px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+height: 400px;
+bordger:1px red dotted;
+overflow-y: auto;
+overflow-x: none;
+white-space: nowrap;
+background-color: whitesmoke;
+margin:20px;
+     bcox-shadow:-8px -8px 50px 0 rgba(0,0,0,0.5);
 
-			bofrder: 2px solid black;
 			}	
 
 #page_profil{
@@ -380,4 +407,119 @@ font-weight: bold;
 margin-left:100px;
 font-size: 30px;
 
+}
+#bouton_profil{
+	line-height: 50px;
+	position: absolute;
+	top:600px;
+	left:805px;
+margin-left:100px;
+font-size: 30px;
+}
+
+.bouton:hover{
+cursor: pointer;	
+
+}
+::before, ::after{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+
+}    
+
+.tableau-style{
+    width:600px;
+    border-collapse: collapse;
+    box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+    cursor: pointer;
+    margin: 0px auto;
+    border: 1px solid #1d3557;
+    border-spacing: 15px;
+    
+}
+
+thead tr {
+
+    
+    background-color: #4C7DC3;
+    border: 2px solid #4C7DC3;
+
+    
+    text-align: left;
+}
+
+
+th, td {
+    padding: 15px 20px;
+    text-align: center;
+    color:white;
+}
+td{
+    color:#4C7DC3;
+}
+
+tbody tr, td, th {
+    font-family: tahoma;    
+    
+    border: 1px solid #4C7DC3;
+}
+tbody tr:nth-child(odd){
+    background-color: #E3E9F7;
+
+}
+
+@media screen and (max-width: 550px) {
+  body {
+    
+    align-items: flex-start;
+  }
+  .table-style  {
+    width: 100%;
+    margin: 0px;
+    font-size: 10px;
+  }
+  th, td {
+    padding: 10px 7px;
+    
+}
+
+}
+	
+a{
+	text-decoration: none;
+    coflor:#4C7DC3;
+    color:#1d3557;
+    font-weight: 700;
+}
+
+a:hover{
+	text-decoration: underline;
+	
+}
+
+.b_profil{
+text-decoration: none;
+color:#1d3557;
+backgroudnd-color: #1d3557;
+border: #d8e3f2 2px solid;
+padding:5px;
+}     
+
+.bouton_amis{
+
+font-family: tahoma;
+background-color: #dfe7f5;
+color:#1d3557;
+cursor: pointer;
+border:none;
+font-size: 20px;
+    font-weight: 700;
+    line-height: 100%;
+padding:5px;
+}
+
+.bouton_amis:hover{
+background-color: #1d3557;
+color:white;
 }

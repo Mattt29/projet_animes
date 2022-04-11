@@ -18,13 +18,16 @@
 					height: 12%;
 					width: 12%;
 				}
+a{
+	margin:10px;
+}
        </style>
     </head>
 
 
 
     <body>
-    	<p>Appuyez pour sélectionner une photo de profil </p>
+    	<p>Appuyez pour sélectionner une photo de profil </p><br>
 		 <?php
         
         
@@ -35,7 +38,7 @@
        
         //echo "<img src='../".$ligne['url_pp']."' width='150' height='150'"."</br>";
 
-		  echo '<a href =enregistrement_pp.php?id_photo_de_profil='.$ligne['id_photo_de_profil'].'> <img src="../'.$ligne['url_pp'].'"></a>';
+		  echo '<a href =enregistrement_pp.php?id_photo_de_profil='.$ligne['id_photo_de_profil'].'><img src="../'.$ligne['url_pp'].'"></a>';
         }   
                 //echo "<a href=profil.php>Sélectionner</a>";
 
